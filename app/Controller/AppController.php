@@ -67,6 +67,7 @@ class AppController extends Controller {
         // for front footer data
         if($this->params['controller'] == "front")
         {
+            $this->set('front', true);
             $this->loadmodel('News');
             $this->loadmodel('NewsCategory');
             $this->loadmodel('Page');

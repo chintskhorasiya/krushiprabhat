@@ -6,8 +6,8 @@ class FrontController extends AppController
     public $helpers = array('Html', 'Form', 'Session', 'Time');
 
     public function comingsoon(){
-        echo "<center><h1>Coming Soon</h1></center>";
-        exit;
+        //echo "<center><h1>Coming Soon</h1></center>";
+        //exit;
     }
 
     public function home(){
@@ -46,110 +46,88 @@ class FrontController extends AppController
         $latest_news_5th_data['News']['cat_slug'] = $latest_newscate_5th_data['NewsCategory']['slug'];
     	$this->set('latest_news_5th_data', $latest_news_5th_data);
 
-    	$latest_newzealand_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'1\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
-        $latest_newscate_newzealand_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>1)));
-        foreach ($latest_newzealand_homepage_data as $latest_newzealand_key => $latest_newzealand_data)
-        {
-            $latest_newzealand_homepage_data[$latest_newzealand_key]['News']['cat_id'] = $latest_newscate_newzealand_data['NewsCategory']['id'];
-            $latest_newzealand_homepage_data[$latest_newzealand_key]['News']['cat_name'] = $latest_newscate_newzealand_data['NewsCategory']['name'];
-            $latest_newzealand_homepage_data[$latest_newzealand_key]['News']['cat_slug'] = $latest_newscate_newzealand_data['NewsCategory']['slug'];
-        }
-    	$this->set('latest_newzealand_homepage_data', $latest_newzealand_homepage_data);
+        $latest_news_6th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1)), 'limit' => 1, 'page' => 6,  'order' => array('id' => 'desc')));
+        $latest_news_6th_cats = explode(',', $latest_news_6th_data['News']['categories']);
+        $latest_news_6th_cat = $latest_news_6th_cats[0];
+        $latest_newscate_6th_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>$latest_news_4th_cat)));
+        $latest_news_6th_data['News']['cat_id'] = $latest_newscate_6th_data['NewsCategory']['id'];
+        $latest_news_6th_data['News']['cat_name'] = $latest_newscate_6th_data['NewsCategory']['name'];
+        $latest_news_6th_data['News']['cat_slug'] = $latest_newscate_6th_data['NewsCategory']['slug'];
+        $this->set('latest_news_6th_data', $latest_news_6th_data);
 
-    	$latest_australlia_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'7\',categories)'), 'limit' => 10, 'order' => array('id' => 'desc')));
-        $latest_newscate_australlia_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>7)));
-        foreach ($latest_australlia_homepage_data as $latest_australlia_key => $latest_australlia_data)
+    	$latest_samachar_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'1\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
+        $latest_newscate_samachar_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>1)));
+        foreach ($latest_samachar_homepage_data as $latest_samachar_key => $latest_samachar_data)
         {
-            $latest_australlia_homepage_data[$latest_australlia_key]['News']['cat_id'] = $latest_newscate_australlia_data['NewsCategory']['id'];
-            $latest_australlia_homepage_data[$latest_australlia_key]['News']['cat_name'] = $latest_newscate_australlia_data['NewsCategory']['name'];
-            $latest_australlia_homepage_data[$latest_australlia_key]['News']['cat_slug'] = $latest_newscate_australlia_data['NewsCategory']['slug'];
+            $latest_samachar_homepage_data[$latest_samachar_key]['News']['cat_id'] = $latest_newscate_samachar_data['NewsCategory']['id'];
+            $latest_samachar_homepage_data[$latest_samachar_key]['News']['cat_name'] = $latest_newscate_samachar_data['NewsCategory']['name'];
+            $latest_samachar_homepage_data[$latest_samachar_key]['News']['cat_slug'] = $latest_newscate_samachar_data['NewsCategory']['slug'];
         }
-    	$this->set('latest_australlia_homepage_data', $latest_australlia_homepage_data);
+    	$this->set('latest_samachar_homepage_data', $latest_samachar_homepage_data);
 
-    	$latest_world_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'4\',categories)'), 'limit' => 6, 'order' => array('id' => 'desc')));
-        $latest_newscate_world_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>4)));
-        foreach ($latest_world_homepage_data as $latest_world_key => $latest_world_data)
+        $latest_margdarshan_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'2\',categories)'), 'limit' => 10, 'order' => array('id' => 'desc')));
+        $latest_newscate_margdarshan_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>2)));
+        foreach ($latest_margdarshan_homepage_data as $latest_margdarshan_key => $latest_margdarshan_data)
         {
-            $latest_world_homepage_data[$latest_world_key]['News']['cat_id'] = $latest_newscate_world_data['NewsCategory']['id'];
-            $latest_world_homepage_data[$latest_world_key]['News']['cat_name'] = $latest_newscate_world_data['NewsCategory']['name'];
-            $latest_world_homepage_data[$latest_world_key]['News']['cat_slug'] = $latest_newscate_world_data['NewsCategory']['slug'];
+            $latest_margdarshan_homepage_data[$latest_margdarshan_key]['News']['cat_id'] = $latest_newscate_margdarshan_data['NewsCategory']['id'];
+            $latest_margdarshan_homepage_data[$latest_margdarshan_key]['News']['cat_name'] = $latest_newscate_margdarshan_data['NewsCategory']['name'];
+            $latest_margdarshan_homepage_data[$latest_margdarshan_key]['News']['cat_slug'] = $latest_newscate_margdarshan_data['NewsCategory']['slug'];
         }
-    	$this->set('latest_world_homepage_data', $latest_world_homepage_data);
+        $this->set('latest_margdarshan_homepage_data', $latest_margdarshan_homepage_data);
 
-    	$latest_gujarat_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'3\',categories)'), 'limit' => 8, 'order' => array('id' => 'desc')));
-        $latest_newscate_gujarat_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>3)));
-        foreach ($latest_gujarat_homepage_data as $latest_gujarat_key => $latest_gujarat_data)
+        $latest_samadhan_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'3\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        $latest_newscate_samadhan_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>3)));
+        foreach ($latest_samadhan_homepage_data as $latest_samadhan_key => $latest_samadhan_data)
         {
-            $latest_gujarat_homepage_data[$latest_gujarat_key]['News']['cat_id'] = $latest_newscate_gujarat_data['NewsCategory']['id'];
-            $latest_gujarat_homepage_data[$latest_gujarat_key]['News']['cat_name'] = $latest_newscate_gujarat_data['NewsCategory']['name'];
-            $latest_gujarat_homepage_data[$latest_gujarat_key]['News']['cat_slug'] = $latest_newscate_gujarat_data['NewsCategory']['slug'];
+            $latest_samadhan_homepage_data[$latest_samadhan_key]['News']['cat_id'] = $latest_newscate_samadhan_data['NewsCategory']['id'];
+            $latest_samadhan_homepage_data[$latest_samadhan_key]['News']['cat_name'] = $latest_newscate_samadhan_data['NewsCategory']['name'];
+            $latest_samadhan_homepage_data[$latest_samadhan_key]['News']['cat_slug'] = $latest_newscate_samadhan_data['NewsCategory']['slug'];
         }
-    	$this->set('latest_gujarat_homepage_data', $latest_gujarat_homepage_data);
+        $this->set('latest_samadhan_homepage_data', $latest_samadhan_homepage_data);
 
-
-    	$latest_sports_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'5\',categories)'), 'limit' => 5, 'order' => array('id' => 'desc')));
-        $latest_newscate_sports_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>5)));
-        foreach ($latest_sports_homepage_data as $latest_sports_key => $latest_sports_data)
+        $latest_vicharmanch_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'4\',categories)'), 'limit' => 3, 'order' => array('id' => 'desc')));
+        $latest_newscate_vicharmanch_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>4)));
+        foreach ($latest_vicharmanch_homepage_data as $latest_vicharmanch_key => $latest_vicharmanch_data)
         {
-            $latest_sports_homepage_data[$latest_sports_key]['News']['cat_id'] = $latest_newscate_sports_data['NewsCategory']['id'];
-            $latest_sports_homepage_data[$latest_sports_key]['News']['cat_name'] = $latest_newscate_sports_data['NewsCategory']['name'];
-            $latest_sports_homepage_data[$latest_sports_key]['News']['cat_slug'] = $latest_newscate_sports_data['NewsCategory']['slug'];
+            $latest_vicharmanch_homepage_data[$latest_vicharmanch_key]['News']['cat_id'] = $latest_newscate_vicharmanch_data['NewsCategory']['id'];
+            $latest_vicharmanch_homepage_data[$latest_vicharmanch_key]['News']['cat_name'] = $latest_newscate_vicharmanch_data['NewsCategory']['name'];
+            $latest_vicharmanch_homepage_data[$latest_vicharmanch_key]['News']['cat_slug'] = $latest_newscate_vicharmanch_data['NewsCategory']['slug'];
         }
-    	$this->set('latest_sports_homepage_data', $latest_sports_homepage_data);
+        $this->set('latest_vicharmanch_homepage_data', $latest_vicharmanch_homepage_data);
 
-    	$latest_bollywood_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-        $latest_newscate_bollywood_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
-        foreach ($latest_bollywood_homepage_data as $latest_bollywood_key => $latest_bollywood_data)
+        $latest_prerna_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'5\',categories)'), 'limit' => 6, 'order' => array('id' => 'desc')));
+        $latest_newscate_prerna_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>5)));
+        foreach ($latest_prerna_homepage_data as $latest_prerna_key => $latest_prerna_data)
         {
-            $latest_bollywood_homepage_data[$latest_bollywood_key]['News']['cat_id'] = $latest_newscate_bollywood_data['NewsCategory']['id'];
-            $latest_bollywood_homepage_data[$latest_bollywood_key]['News']['cat_name'] = $latest_newscate_bollywood_data['NewsCategory']['name'];
-            $latest_bollywood_homepage_data[$latest_bollywood_key]['News']['cat_slug'] = $latest_newscate_bollywood_data['NewsCategory']['slug'];
+            $latest_prerna_homepage_data[$latest_prerna_key]['News']['cat_id'] = $latest_newscate_prerna_data['NewsCategory']['id'];
+            $latest_prerna_homepage_data[$latest_prerna_key]['News']['cat_name'] = $latest_newscate_prerna_data['NewsCategory']['name'];
+            $latest_prerna_homepage_data[$latest_prerna_key]['News']['cat_slug'] = $latest_newscate_prerna_data['NewsCategory']['slug'];
         }
-    	$this->set('latest_bollywood_homepage_data', $latest_bollywood_homepage_data);
+        $this->set('latest_prerna_homepage_data', $latest_prerna_homepage_data);
 
-    	$latest_columns_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 3, 'order' => array('id' => 'desc')));
-    	$latest_newscate_columns_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>8)));
-        foreach ($latest_columns_homepage_data as $latest_columns_key => $latest_columns_data)
+    	$latest_gauseva_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
+        $latest_newscate_gauseva_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
+        foreach ($latest_gauseva_homepage_data as $latest_gauseva_key => $latest_gauseva_data)
         {
-            $latest_columns_homepage_data[$latest_columns_key]['News']['cat_id'] = $latest_newscate_columns_data['NewsCategory']['id'];
-            $latest_columns_homepage_data[$latest_columns_key]['News']['cat_name'] = $latest_newscate_columns_data['NewsCategory']['name'];
-            $latest_columns_homepage_data[$latest_columns_key]['News']['cat_slug'] = $latest_newscate_columns_data['NewsCategory']['slug'];
+            $latest_gauseva_homepage_data[$latest_gauseva_key]['News']['cat_id'] = $latest_newscate_gauseva_data['NewsCategory']['id'];
+            $latest_gauseva_homepage_data[$latest_gauseva_key]['News']['cat_name'] = $latest_newscate_gauseva_data['NewsCategory']['name'];
+            $latest_gauseva_homepage_data[$latest_gauseva_key]['News']['cat_slug'] = $latest_newscate_gauseva_data['NewsCategory']['slug'];
         }
-        $this->set('latest_columns_homepage_data', $latest_columns_homepage_data);
+    	$this->set('latest_gauseva_homepage_data', $latest_gauseva_homepage_data);
 
-    	$latest_india_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'2\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
-    	$latest_newscate_india_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>2)));
-        foreach ($latest_india_homepage_data as $latest_india_key => $latest_india_data)
+        $latest_levench_homepage_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 10, 'order' => array('id' => 'desc')));
+        $latest_newscate_levench_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>7)));
+        foreach ($latest_levench_homepage_data as $latest_levench_key => $latest_levench_data)
         {
-            $latest_india_homepage_data[$latest_india_key]['News']['cat_id'] = $latest_newscate_india_data['NewsCategory']['id'];
-            $latest_india_homepage_data[$latest_india_key]['News']['cat_name'] = $latest_newscate_india_data['NewsCategory']['name'];
-            $latest_india_homepage_data[$latest_india_key]['News']['cat_slug'] = $latest_newscate_india_data['NewsCategory']['slug'];
+            $latest_levench_homepage_data[$latest_levench_key]['News']['cat_id'] = $latest_newscate_levench_data['NewsCategory']['id'];
+            $latest_levench_homepage_data[$latest_levench_key]['News']['cat_name'] = $latest_newscate_levench_data['NewsCategory']['name'];
+            $latest_levench_homepage_data[$latest_levench_key]['News']['cat_slug'] = $latest_newscate_levench_data['NewsCategory']['slug'];
         }
-        $this->set('latest_india_homepage_data', $latest_india_homepage_data);
+        $this->set('latest_levench_homepage_data', $latest_levench_homepage_data);
 
         $this->loadmodel('Video');
         $latest_videos_homepage_data = $this->Video->find('all', array('conditions' => array('status IN'=> array(1)), 'limit' => 3, 'order' => array('id' => 'desc')));
         $this->set('latest_videos_homepage_data', $latest_videos_homepage_data);
-
-    	// footer queries
-
-    	/*$latest_newzealand_footer_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'1\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-    	$this->set('latest_newzealand_footer_data', $latest_newzealand_footer_data);
-
-    	$latest_sports_footer_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'5\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-    	$this->set('latest_sports_footer_data', $latest_sports_footer_data);
-
-    	$latest_world_footer_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'4\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-    	$this->set('latest_world_footer_data', $latest_world_footer_data);
-
-    	$latest_gujarat_footer_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'3\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-    	$this->set('latest_gujarat_footer_data', $latest_gujarat_footer_data);
-
-    	$latest_bollywood_footer_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-    	$this->set('latest_bollywood_footer_data', $latest_bollywood_footer_data);
-
-    	$latest_india_footer_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'2\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
-    	$this->set('latest_india_footer_data', $latest_india_footer_data);*/
 
     }
 
