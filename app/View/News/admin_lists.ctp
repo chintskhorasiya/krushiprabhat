@@ -84,10 +84,11 @@
                                     <thead>
                                         <tr>
                                             <th width="5%"></th>
-                                            <th width="20%">Created Date</th>
-                                            <th width="40%">Title</th>
+                                            <th width="15%">Created Date</th>
+                                            <th width="45%">Title</th>
+                                            <th width="10%">Views</th>
                                             <th width="5%">Status</th>
-                                            <th width="30%">Action</th>
+                                            <th width="20%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,6 +109,12 @@
                                                 <td>
                                                     <div class="btn-group zn-listing-link">
                                                         <?php echo $news[$i]['News']['title']; ?>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="btn-group zn-listing-link">
+                                                        <?php echo $news[$i]['News']['views']; ?>
                                                     </div>
                                                 </td>
 

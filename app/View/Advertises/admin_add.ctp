@@ -54,7 +54,8 @@
 
                                     echo $this->Form->input('link', array('class' => 'form-control input-lg', 'label'=>'External Link (e.g http://vtvgujarati.com/)'));
 
-                                    $options = array('home_top_left'=>'home_top_left (335x100)','home_top_right'=>'home_top_right (335x100)','home_latest_bottom'=>'home_latest_bottom (835x70)','home_rightbar_first'=>'home_rightbar_first (320x200)','home_rightbar_second'=>'home_rightbar_second (320x400)','category_page_rightbar'=>'category_page_rightbar (320x400)','detail_page_rightbar'=>'detail_page_rightbar (320x400)','detail_page_latest_bottom'=>'detail_page_latest_bottom (835x70)');
+                                    $options = array('home_top_right'=>'home_top_right (700x100)','home_rightbar_first'=>'home_rightbar_first (320x320)','home_footer_bottom'=>'home_footer_bottom (995x250)','category_page_rightbar'=>'category_page_rightbar (320x320)','detail_page_rightbar'=>'detail_page_rightbar (320x320)','detail_page_latest_bottom'=>'detail_page_latest_bottom (995x250)');
+
                                     $selected = array();
 
                                     echo $this->Form->input('position', array('label'=>'Position','class' => 'form-control', 'options' => $options, 'selected' => $selected));

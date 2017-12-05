@@ -16,6 +16,12 @@
         <?php if($front){ ?>
             <?php echo $this->Html->css(array('bootstrap.min','jquery-ui-1.10.1.custom.min', 'bootstrap-reset', 'frontstyle', 'font-awesome')); ?>
             <?php echo $this->Html->script(array('jquery-1.10.2.min','jquery-ui.min','bootstrap.min','accordion-menu/jquery.dcjqaccordion.2.7','jquery.scrollTo.min','jquery.nicescroll','jquery.slimscroll','scripts','acco-nav')); ?>
+            <?php
+            if(isset($page_name) && $page_name == 'news_detail'){
+                echo $this->Html->css(array('flexslider'));
+                echo $this->Html->script(array('jquery.flexslider'));
+            }
+            ?>
         <?php } else { ?>
             <?php /* */ ?>
             <?php echo $this->Html->css(array('bootstrap.min','jquery-ui-1.10.1.custom.min', 'bootstrap-reset', 'style', 'font-awesome')); ?>

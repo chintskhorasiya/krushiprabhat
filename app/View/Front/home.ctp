@@ -273,9 +273,16 @@ echo $this->element('frontheader');
    	}
    	?>  
 			
-	<div class="adv2">
-		<img src="<?=DEFAULT_URL?>img/adv2.jpg" alt="" />
-	</div>
+	<?php
+  	if($ads_home_rightbar_first_data)
+  	{
+  		if(!empty($ads_home_rightbar_first_data['Advertise']['source'])){
+  		?>
+  		<div class="adv2"><a target="_blank" href="<?=$ads_home_rightbar_first_data['Advertise']['link']?>"><img src="<?=$ads_home_rightbar_first_data['Advertise']['source']?>" alt="<?=$ads_home_rightbar_first_data['Advertise']['title']?>" /></a></div>
+  		<?php
+  		}
+  	}
+  	?> 	
 
 	<div class="home-online-pol">
 		<h2 class="main-title">Online Poll</h2>
@@ -363,9 +370,16 @@ echo $this->element('frontheader');
 
 <div class="clear"></div>
 
-<div class="adv6">
-	<img src="<?=DEFAULT_URL?>img/adv6.jpg" alt="" />
-</div>	
+<?php
+  	if($ads_home_footer_bottom_data)
+  	{
+  		if(!empty($ads_home_footer_bottom_data['Advertise']['source'])){
+  		?>
+  		<div class="adv6"><a target="_blank" href="<?=$ads_home_footer_bottom_data['Advertise']['link']?>"><img src="<?=$ads_home_footer_bottom_data['Advertise']['source']?>" alt="<?=$ads_home_footer_bottom_data['Advertise']['title']?>" /></a></div>
+  		<?php
+  		}
+  	}
+  	?> 	
 
 <?php
 echo $this->element('frontfooter');

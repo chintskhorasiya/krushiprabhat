@@ -16,8 +16,19 @@
       </div> <!-- top header end -->
 	   
       <div class="logo-header"> <!-- logo header start --> 
-	      <div class="logo"><a href="#"><img src="<?=DEFAULT_URL?>img/logo.png" alt="logo" /></a></div>
- 		  <div class="adv1"><a href="#"><img src="<?=DEFAULT_URL?>img/adv1.jpg" alt="" /></a></div>  
+	      <div class="logo"><a href="<?=DEFAULT_URL?>"><img src="<?=DEFAULT_URL?>img/logo.png" alt="logo" /></a></div>
+ 		  	
+ 		  	<?php
+		  	if($ads_home_top_right_data)
+		  	{
+		  		if(!empty($ads_home_top_right_data['Advertise']['source'])){
+		  		?>
+		  		<div class="adv1"><a target="_blank" href="<?=$ads_home_top_right_data['Advertise']['link']?>"><img src="<?=$ads_home_top_right_data['Advertise']['source']?>" alt="<?=$ads_home_top_right_data['Advertise']['title']?>" /></a></div>
+		  		<?php
+		  		}
+		  	}
+		  	?> 
+
 		   <div class="clear"></div>
 	  </div> <!-- logo header end -->
 	  
@@ -29,7 +40,7 @@
                                 <span class="icon-bar"></span>
                                 </button>
 		    <ul class="nav navbar-nav">
-				<li class="active home-menu"><a href="#"><img src="<?=DEFAULT_URL?>img/home-icon.png" alt="home" /></a></li>
+				<li class="active home-menu"><a href="<?=DEFAULT_URL?>"><img src="<?=DEFAULT_URL?>img/home-icon.png" alt="home" /></a></li>
 				<?php
 		  		foreach ($header_cate_menus_data as $newscate_key => $newscate_data) {
 		  			?>

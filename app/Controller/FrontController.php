@@ -156,7 +156,7 @@ class FrontController extends AppController
                 $get_catenews_data_by_category[$catenews_key]['News']['cat_slug'] = $catenews_catdata['NewsCategory']['slug'];
             }
 
-            $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'3\',categories)'), 'limit' => 5, 'order' => array('id' => 'desc')));
+            $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 5, 'order' => array('id' => 'desc')));
             //$this->pre($get_morenews_data_by_category);exit;
             $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>3)));
             foreach ($get_sidebarupr_data_by_category as $sidebarupr_key => $sidebarupr_data)
@@ -166,9 +166,20 @@ class FrontController extends AppController
                 $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_slug'] = $sidebarupr_catdata['NewsCategory']['slug'];
             }
 
+            $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 4, 'order' => array('id' => 'desc')));
+            //$this->pre($get_morenews_data_by_category);exit;
+            $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>2)));
+            foreach ($get_sidebardown_data_by_category as $sidebardown_key => $sidebardown_data)
+            {
+                $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_id'] = $sidebardown_catdata['NewsCategory']['id'];
+                $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_name'] = $sidebardown_catdata['NewsCategory']['name'];
+                $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_slug'] = $sidebardown_catdata['NewsCategory']['slug'];
+            }
+
         } else {
             $get_catenews_data_by_category = array();
-            $get_sidebarupr_data_by_category = array();    
+            $get_sidebarupr_data_by_category = array(); 
+            $get_sidebardown_data_by_category = array();    
         }
 
         //$this->pre($category_title);
@@ -177,6 +188,7 @@ class FrontController extends AppController
         $this->set('category_title', $category_title);
         $this->set('category_news_data', $get_catenews_data_by_category);
         $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);
+        $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);
     }
 
     public function news_detail($categoryslug, $slug)
@@ -192,6 +204,7 @@ class FrontController extends AppController
             $news_page_images = $get_news_data_by_slug['News']['images'];
             $news_page_videos = $get_news_data_by_slug['News']['videos'];
             $news_page_modified = $get_news_data_by_slug['News']['modified'];
+            $news_page_views = (int) $get_news_data_by_slug['News']['views'];
         } else {
             $news_page_id = '';
             $news_page_content = '';
@@ -199,6 +212,7 @@ class FrontController extends AppController
             $news_page_images = '';
             $news_page_videos = '';
             $news_page_modified = '';
+            $new_page_views = 0;
         }
 
         $this->loadmodel('NewsCategory');
@@ -250,8 +264,19 @@ class FrontController extends AppController
             $get_sidebardown_data_by_category = array();
         }
 
+        if($news_page_id){
+            $news_page_views++;
+            $update_views_data = array();
+            $update_views_data['News']['id'] = $news_page_id;
+            $update_views_data['News']['views'] = $news_page_views;
+            //$this->pre($update_views_data);exit;
+            $this->News->save($update_views_data, false);
+        }
+
+        $this->set('page_name', 'news_detail');
         $this->set('category_id', $category_id);
         $this->set('category_title', $category_title);
+        $this->set('news_page_id', $news_page_id);
         $this->set('news_page_title', $news_page_title);
         $this->set('news_page_images', $news_page_images);
         $this->set('news_page_videos', $news_page_videos);

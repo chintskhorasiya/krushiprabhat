@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="clear"></div>
-                                    <input class="btn btn-info" type="submit" name="btn_repricing" id="btn_repricing" value="Save Repricing Settings" />
+                                    <input class="btn btn-info" type="submit" name="btn_repricing" id="btn_repricing" value="Submit" />
                                 </form>
                             </div>
 

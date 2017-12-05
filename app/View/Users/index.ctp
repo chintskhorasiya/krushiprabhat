@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="admin-logo"><img src="<?php echo IMAGE_URL;?>logo.jpg" alt="<?=SITE_NAME?>" /></div>
+    <div class="admin-logo"><img src="<?php echo IMAGE_URL;?>logo.png" alt="<?=SITE_NAME?>" /></div>
 
     <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Welcome to Login</h2>
