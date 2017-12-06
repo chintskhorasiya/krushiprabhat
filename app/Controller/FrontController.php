@@ -16,7 +16,7 @@ class FrontController extends AppController
     	$this->loadmodel('News');
         $this->loadmodel('NewsCategory');
 
-    	$latest_news_gallery_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1)), 'limit' => 3, 'order' => array('id' => 'desc')));
+    	$latest_news_gallery_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'9\',categories)'), 'limit' => 3, 'order' => array('id' => 'desc')));
         foreach ($latest_news_gallery_data as $latest_news_key => $latest_news_data)
         {
             $latest_news_cats = explode(',', $latest_news_data['News']['categories']);
@@ -28,7 +28,7 @@ class FrontController extends AppController
         }
     	$this->set('latest_news_gallery_data', $latest_news_gallery_data);
 
-    	$latest_news_4th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1)), 'limit' => 1, 'page' => 4,  'order' => array('id' => 'desc')));
+    	$latest_news_4th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'9\',categories)'), 'limit' => 1, 'page' => 4,  'order' => array('id' => 'desc')));
         $latest_news_4th_cats = explode(',', $latest_news_4th_data['News']['categories']);
         $latest_news_4th_cat = $latest_news_4th_cats[0];
         $latest_newscate_4th_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>$latest_news_4th_cat)));
@@ -37,7 +37,7 @@ class FrontController extends AppController
         $latest_news_4th_data['News']['cat_slug'] = $latest_newscate_4th_data['NewsCategory']['slug'];
     	$this->set('latest_news_4th_data', $latest_news_4th_data);
 
-    	$latest_news_5th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1)), 'limit' => 1, 'page' => 5,  'order' => array('id' => 'desc')));
+    	$latest_news_5th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'9\',categories)'), 'limit' => 1, 'page' => 5,  'order' => array('id' => 'desc')));
         $latest_news_5th_cats = explode(',', $latest_news_5th_data['News']['categories']);
         $latest_news_5th_cat = $latest_news_5th_cats[0];
         $latest_newscate_5th_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>$latest_news_4th_cat)));
@@ -46,7 +46,7 @@ class FrontController extends AppController
         $latest_news_5th_data['News']['cat_slug'] = $latest_newscate_5th_data['NewsCategory']['slug'];
     	$this->set('latest_news_5th_data', $latest_news_5th_data);
 
-        $latest_news_6th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1)), 'limit' => 1, 'page' => 6,  'order' => array('id' => 'desc')));
+        $latest_news_6th_data = $this->News->find('first', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'9\',categories)'), 'limit' => 1, 'page' => 6,  'order' => array('id' => 'desc')));
         $latest_news_6th_cats = explode(',', $latest_news_6th_data['News']['categories']);
         $latest_news_6th_cat = $latest_news_6th_cats[0];
         $latest_newscate_6th_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>$latest_news_4th_cat)));

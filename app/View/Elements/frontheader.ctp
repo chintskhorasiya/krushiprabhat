@@ -30,6 +30,15 @@
 		  	?> 
 
 		   <div class="clear"></div>
+
+		   	<ul class="logo-menu">  
+			 <li><a href="#">લાઈવ ટીવી</a></li>
+			 <li><a href="#">વિડીયો</a></li>
+			 <li><a href="#">ફોટો ગેલેરી</a></li> 
+			</ul> 
+           
+           <div class="clear"></div>
+
 	  </div> <!-- logo header end -->
 	  
       <div class="menu-header">  <!-- menu-header start -->
@@ -47,10 +56,8 @@
 		  			<li><a href="<?=DEFAULT_FRONT_NEWS_CATEGORY_URL.$newscate_data['NewsCategory']['slug']?>"><?=$newscate_data['NewsCategory']['name'];?></a></li>
 		  			<?php	
 		  		}
-		  		?>
-			  	<li><a href="#">Gallery</a></li> 
-			</ul> 
-			<div class="live-tv"><a href="#"><img src="<?=DEFAULT_URL?>img/live-tv.jpg" alt="livetv" /></a></div>
+		  		?> 
+			</ul>
 		</nav>
       </div>  <!-- menu-header end -->	   
  </header> <!-- header end -->

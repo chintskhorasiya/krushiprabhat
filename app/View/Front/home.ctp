@@ -3,6 +3,7 @@ echo $this->element('frontheader');
 ?>
 <div class="left-part"> <!-- left-part start -->
 	<section class="main sec-part1"> <!-- sec-part1 start -->
+		<a href="<?php echo $this->Common->get_listing_url(9); ?>"><h2 class="main-title">Top Story</h2></a>
 		<div class="sec-part1-left">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<div class="carousel-inner">
