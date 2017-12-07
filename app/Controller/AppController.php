@@ -230,6 +230,18 @@ class AppController extends Controller {
                 $dynamic_name .= 'Video - '.$video_data['Video']['title'];
             }
         }
+
+        if($pagenames == "gallery_detail")
+        {
+            $this->loadmodel('Gallery');
+            $gallery_data = $this->Gallery->find('first', array('conditions' => array('status IN'=> array(1), 'slug'=>$params[0])));
+            //$this->pre($news_data);
+            if(!empty($gallery_data['Gallery']['title']))
+            {
+                $dynamic_name .= 'Photo Gallery - '.$gallery_data['Gallery']['title'];
+            }
+        }
+
         if($pagenames == "epapers_listing")
         {
             if(!empty($params[0] == 'aus')){
@@ -282,7 +294,9 @@ class AppController extends Controller {
             'galleries/admin_search'=>'Searched Galleries List',
             'galleries/admin_lists'=>'Galleries List',
             'galleries/admin_add'=>'Add Gallery',
-            'galleries/admin_edit'=>'Edit Gallery'
+            'galleries/admin_edit'=>'Edit Gallery',
+            'gallery_listing'=>'Photo Gallery',
+            'gallery_detail'=>$dynamic_name
         );
 //
         //echo $title_arr[$pagenames];

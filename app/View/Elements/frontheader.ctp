@@ -44,7 +44,7 @@
 		   	<ul class="logo-menu">  
 			 <li><a href="#">લાઈવ ટીવી</a></li>
 			 <li><a href="<?=DEFAULT_URL?>videos">વિડીયો</a></li>
-			 <li><a href="#">ફોટો ગેલેરી</a></li> 
+			 <li><a href="<?=DEFAULT_URL?>gallery">ફોટો ગેલેરી</a></li> 
 			</ul> 
            
            <div class="clear"></div>
@@ -58,7 +58,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 </button>
-		    <ul class="nav navbar-nav">
+		    <ul class="nav navbar-nav navbar-collapse collapse">
 				<li class="active home-menu"><a href="<?=DEFAULT_URL?>"><img src="<?=DEFAULT_URL?>img/home-icon.png" alt="home" /></a></li>
 				<?php
 		  		foreach ($header_cate_menus_data as $newscate_key => $newscate_data) {

@@ -589,4 +589,99 @@ class FrontController extends AppController
         $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);      
     }
 
+    public function gallery_listing(){
+        $this->loadmodel('Gallery');
+        $this->loadmodel('News');
+
+        $this->paginate = array(
+            'conditions' => array('status IN'=> array(1)),
+            'limit' => 10,
+            'order' => array('id' => 'desc')
+        );
+
+        $galleries_data = $this->paginate('Gallery');
+
+        //$this->pre($videos_data);exit;
+
+        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
+        foreach ($get_sidebarupr_data_by_category as $sidebarupr_key => $sidebarupr_data)
+        {
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_id'] = $sidebarupr_catdata['NewsCategory']['id'];
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_name'] = $sidebarupr_catdata['NewsCategory']['name'];
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_slug'] = $sidebarupr_catdata['NewsCategory']['slug'];
+        }
+
+        $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>8)));
+        foreach ($get_sidebardown_data_by_category as $sidebardown_key => $sidebardown_data)
+        {
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_id'] = $sidebardown_catdata['NewsCategory']['id'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_name'] = $sidebardown_catdata['NewsCategory']['name'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_slug'] = $sidebardown_catdata['NewsCategory']['slug'];
+        }
+
+        $this->set('galleries_data',$galleries_data);
+        $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);
+        $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);      
+    }
+
+    public function gallery_detail($slug)
+    {
+        $this->loadmodel('Gallery');
+
+        $get_gallery_data_by_slug = $this->Gallery->find('first', array('conditions' => array('status IN'=> array(1), 'slug'=>$slug)));
+
+        if(!empty($get_gallery_data_by_slug['Gallery']['images']))
+        {
+            $gallery_page_id = $get_gallery_data_by_slug['Gallery']['id'];
+            $gallery_page_content = $get_gallery_data_by_slug['Gallery']['content'];
+            $gallery_page_title = $get_gallery_data_by_slug['Gallery']['title'];
+            $gallery_page_images = $get_gallery_data_by_slug['Gallery']['images'];
+            $gallery_page_modified = $get_gallery_data_by_slug['Gallery']['modified'];
+        } else {
+            $gallery_page_id = '';
+            $gallery_page_content = '';
+            $gallery_page_title = '';
+            $gallery_page_images = '';
+            $gallery_page_modified = '';
+        }
+
+        $get_moregallery_data = $this->Gallery->find('all', array('conditions' => array('status IN'=> array(1), 'id NOT IN'=>array($gallery_page_id)), 'limit' => 10, 'order' => array('id' => 'desc')) );
+
+        //$this->pre($get_moregallery_data);
+
+        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
+        foreach ($get_sidebarupr_data_by_category as $sidebarupr_key => $sidebarupr_data)
+        {
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_id'] = $sidebarupr_catdata['NewsCategory']['id'];
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_name'] = $sidebarupr_catdata['NewsCategory']['name'];
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_slug'] = $sidebarupr_catdata['NewsCategory']['slug'];
+        }
+
+        $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>8)));
+        foreach ($get_sidebardown_data_by_category as $sidebardown_key => $sidebardown_data)
+        {
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_id'] = $sidebardown_catdata['NewsCategory']['id'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_name'] = $sidebardown_catdata['NewsCategory']['name'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_slug'] = $sidebardown_catdata['NewsCategory']['slug'];
+        }
+
+        $this->set('page_name', 'gallery_detail');
+        $this->set('gallery_page_title', $gallery_page_title);
+        $this->set('gallery_page_images', $gallery_page_images);
+        $this->set('gallery_page_content', $gallery_page_content);
+        $this->set('gallery_page_modified', $gallery_page_modified);
+        $this->set('gallery_page_moregallery', $get_moregallery_data);
+        $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);
+        $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);
+
+    }
+
 }

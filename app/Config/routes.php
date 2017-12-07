@@ -79,6 +79,16 @@
 	    array('controller' => 'front', 'action' => 'polls_listing')
 	);
 
+	Router::connect(
+	    '/gallery/*',
+	    array('controller' => 'front', 'action' => 'gallery_listing')
+	);
+
+	Router::connect(
+	    '/gallery-photos/*',
+	    array('controller' => 'front', 'action' => 'gallery_detail')
+	);
+
     /*Router::connect(
 	    '/admin',
 	    array('controller' => 'users')
