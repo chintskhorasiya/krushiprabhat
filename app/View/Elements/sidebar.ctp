@@ -70,6 +70,19 @@
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:void(0);">
+                            <i class="fa fa-tags"></i><span>Photo Gallery</span>
+                        </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="<?php echo DEFAULT_ADMINURL ?>galleries/lists/<?php echo $encrypt_id;?>"><i class="fa fa-eye"></i>View Galleries</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo DEFAULT_ADMINURL ?>galleries/add/<?php echo $encrypt_id;?>"><i class="fa fa-plus"></i>Add Gallery</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:void(0);">
                             <i class="fa fa-tags"></i><span>Videos</span>
                         </a>
                         <ul class="sub">

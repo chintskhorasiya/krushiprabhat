@@ -75131,3 +75131,72 @@ Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
 Stack Trace:
 #0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-12-07 11:57:48 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-07 11:57:48 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-07 12:29:16 Error: [MissingTableException] Table gallery_categories for model GalleryCategory was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'gallery_categories',
+  'class' => 'GalleryCategory',
+  'ds' => 'default',
+)
+Request URL: /cakephp/krushiprabhat/admin/galleries/edit/galleryId:1
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/lib/Cake/Model/Model.php(3653): Model->setSource('gallery_categor...')
+#1 /var/www/cakephp/krushiprabhat/lib/Cake/Model/Model.php(3031): Model->getDataSource()
+#2 /var/www/cakephp/krushiprabhat/lib/Cake/Model/Model.php(3003): Model->_readDataSource('all', Array)
+#3 /var/www/cakephp/krushiprabhat/app/Controller/GalleriesController.php(356): Model->find('all', Array)
+#4 [internal function]: GalleriesController->admin_edit()
+#5 /var/www/cakephp/krushiprabhat/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(GalleriesController), Array)
+#6 /var/www/cakephp/krushiprabhat/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/cakephp/krushiprabhat/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(GalleriesController), Object(CakeRequest))
+#8 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2017-12-07 12:31:39 Error: [MissingTableException] Table gallery_categories for model GalleryCategory was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'gallery_categories',
+  'class' => 'GalleryCategory',
+  'ds' => 'default',
+)
+Request URL: /cakephp/krushiprabhat/admin/galleries/edit/galleryId:1
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/lib/Cake/Model/Model.php(3653): Model->setSource('gallery_categor...')
+#1 /var/www/cakephp/krushiprabhat/lib/Cake/Model/Model.php(3031): Model->getDataSource()
+#2 /var/www/cakephp/krushiprabhat/lib/Cake/Model/Model.php(3003): Model->_readDataSource('all', Array)
+#3 /var/www/cakephp/krushiprabhat/app/Controller/GalleriesController.php(356): Model->find('all', Array)
+#4 [internal function]: GalleriesController->admin_edit()
+#5 /var/www/cakephp/krushiprabhat/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(GalleriesController), Array)
+#6 /var/www/cakephp/krushiprabhat/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /var/www/cakephp/krushiprabhat/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(GalleriesController), Object(CakeRequest))
+#8 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2017-12-07 12:44:50 Error: [MissingViewException] View file "Gallery/admin_lists.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Gallery/admin_lists.ctp',
+)
+Request URL: /cakephp/krushiprabhat/admin/galleries/search
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/lib/Cake/View/View.php(470): View->_getViewFileName('/Gallery/admin_...')
+#1 /var/www/cakephp/krushiprabhat/lib/Cake/Controller/Controller.php(963): View->render('/Gallery/admin_...', NULL)
+#2 /var/www/cakephp/krushiprabhat/app/Controller/GalleriesController.php(441): Controller->render('/Gallery/admin_...')
+#3 [internal function]: GalleriesController->admin_search()
+#4 /var/www/cakephp/krushiprabhat/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(GalleriesController), Array)
+#5 /var/www/cakephp/krushiprabhat/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#6 /var/www/cakephp/krushiprabhat/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(GalleriesController), Object(CakeRequest))
+#7 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}

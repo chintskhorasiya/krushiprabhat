@@ -42,7 +42,7 @@ class AppController extends Controller {
 
     function beforeFilter() {
 
-        if($this->params['controller'] == "pages" || $this->params['controller'] == "newscategories" || $this->params['controller'] == "news" || $this->params['controller'] == "advertises" || $this->params['controller'] == "videos" || $this->params['controller'] == "epapers" || $this->params['controller'] == "settings")
+        if($this->params['controller'] == "pages" || $this->params['controller'] == "newscategories" || $this->params['controller'] == "news" || $this->params['controller'] == "advertises" || $this->params['controller'] == "videos" || $this->params['controller'] == "galleries" || $this->params['controller'] == "epapers" || $this->params['controller'] == "settings")
         {
             $this->checklogin();
         }
@@ -55,7 +55,7 @@ class AppController extends Controller {
 
         //$this->pre($this->params);
 
-        if($this->params['controller'] == "pages" || $this->params['controller'] == "newscategories" || $this->params['controller'] == "news" || $this->params['controller'] == "advertises" || $this->params['controller'] == "videos" || $this->params['controller'] == "epapers" || $this->params['controller'] == "settings")
+        if($this->params['controller'] == "pages" || $this->params['controller'] == "newscategories" || $this->params['controller'] == "news" || $this->params['controller'] == "advertises" || $this->params['controller'] == "videos" || $this->params['controller'] == "galleries" || $this->params['controller'] == "epapers" || $this->params['controller'] == "settings")
         {
             $pagenames = $this->params['controller'].'/'.$this->params['action'];
         }
@@ -278,7 +278,11 @@ class AppController extends Controller {
             'epapers'=>'E-Papers',
             'epapers_listing'=>$dynamic_name,
             'news_search_results'=>'News Search Results',
-            'settings/admin_general'=>'General Settings'
+            'settings/admin_general'=>'General Settings',
+            'galleries/admin_search'=>'Searched Galleries List',
+            'galleries/admin_lists'=>'Galleries List',
+            'galleries/admin_add'=>'Add Gallery',
+            'galleries/admin_edit'=>'Edit Gallery'
         );
 //
         //echo $title_arr[$pagenames];
