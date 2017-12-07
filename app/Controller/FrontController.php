@@ -129,6 +129,10 @@ class FrontController extends AppController
         $latest_videos_homepage_data = $this->Video->find('all', array('conditions' => array('status IN'=> array(1)), 'limit' => 3, 'order' => array('id' => 'desc')));
         $this->set('latest_videos_homepage_data', $latest_videos_homepage_data);
 
+        $this->loadmodel('Poll');
+        $latest_poll_homepage_data = $this->Poll->find('first', array('conditions' => array('status IN'=> array(1)), 'order' => array('id' => 'desc')));
+        $this->set('latest_poll_homepage_data', $latest_poll_homepage_data);
+
     }
 
     public function news_listing($categoryslug)
@@ -319,9 +323,9 @@ class FrontController extends AppController
 
         //$this->pre($videos_data);exit;
 
-        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'3\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
         //$this->pre($get_morenews_data_by_category);exit;
-        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>3)));
+        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
         foreach ($get_sidebarupr_data_by_category as $sidebarupr_key => $sidebarupr_data)
         {
             $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_id'] = $sidebarupr_catdata['NewsCategory']['id'];
@@ -329,8 +333,19 @@ class FrontController extends AppController
             $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_slug'] = $sidebarupr_catdata['NewsCategory']['slug'];
         }
 
+        $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>8)));
+        foreach ($get_sidebardown_data_by_category as $sidebardown_key => $sidebardown_data)
+        {
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_id'] = $sidebardown_catdata['NewsCategory']['id'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_name'] = $sidebardown_catdata['NewsCategory']['name'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_slug'] = $sidebardown_catdata['NewsCategory']['slug'];
+        }
+
         $this->set('videos_data',$videos_data);
-        $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);      
+        $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);
+        $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);      
     }
 
     public function video_detail($slug)
@@ -357,9 +372,9 @@ class FrontController extends AppController
 
         $get_morevideos_data = $this->Video->find('all', array('conditions' => array('status IN'=> array(1), 'id NOT IN'=>array($video_page_id)), 'limit' => 10, 'order' => array('id' => 'desc')) );
 
-        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'3\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
         //$this->pre($get_morenews_data_by_category);exit;
-        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>3)));
+        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
         foreach ($get_sidebarupr_data_by_category as $sidebarupr_key => $sidebarupr_data)
         {
             $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_id'] = $sidebarupr_catdata['NewsCategory']['id'];
@@ -367,9 +382,9 @@ class FrontController extends AppController
             $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_slug'] = $sidebarupr_catdata['NewsCategory']['slug'];
         }
 
-        $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'2\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
         //$this->pre($get_morenews_data_by_category);exit;
-        $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>2)));
+        $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>8)));
         foreach ($get_sidebardown_data_by_category as $sidebardown_key => $sidebardown_data)
         {
             $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_id'] = $sidebardown_catdata['NewsCategory']['id'];
@@ -473,6 +488,105 @@ class FrontController extends AppController
         $this->set('from_search',true);
 
         //exit;
+    }
+
+    public function pollsubmit(){
+
+        if ($this->request->is('post'))
+        {
+            $this->loadmodel('Poll');
+
+            if(!empty($this->request->data) && isset($this->request->data) )
+            {
+                //$this->pre($this->request->data);exit;
+                $answer = (int) trim($this->request->data['poll_answer']);
+                $poll_id = (int) trim($this->request->data['poll_id']);
+                $redirect_url = $this->request->data['redirect_url'];
+     
+                if(!empty($answer) && !empty($poll_id))
+                {
+                    $get_poll_data_by_id = $this->Poll->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>$poll_id)));
+
+                    //$this->pre($get_poll_data_by_id);exit;
+                    //exit;
+
+                    $update_poll_data = array();
+                    $update_poll_data['Poll']['id'] = $poll_id;
+                    if($answer == 2){
+                        $answer2_votes = $get_poll_data_by_id['Poll']['answer2_vote'];
+                        $answer2_votes++;
+                        $update_poll_data['Poll']['answer2_vote'] = $answer2_votes;
+                        $update_poll_data['Poll']['last_answer'] = 2;
+                    } else {
+                        $answer1_votes = $get_poll_data_by_id['Poll']['answer1_vote'];
+                        $answer1_votes++;
+                        $update_poll_data['Poll']['answer1_vote'] = $answer1_votes;
+                        $update_poll_data['Poll']['last_answer'] = 1;
+                    }
+                    //$this->pre($update_poll_data);exit;
+                    $this->Poll->save($update_poll_data, false);
+
+                    $_SESSION['vote_success_msg'] = "Thanks for voting.";
+
+                    if(!empty($redirect_url)){
+                        $this->redirect($redirect_url);
+                    } else {
+                        $this->redirect(DEFAULT_URL);
+                    }
+                }
+                else
+                {
+                    $this->redirect(DEFAULT_URL);
+                }
+            }
+            else
+            {
+                $this->redirect(DEFAULT_URL);
+            }
+        }
+        else
+        {
+            $this->redirect(DEFAULT_URL);
+        }
+
+    }
+
+    public function polls_listing(){
+        $this->loadmodel('Poll');
+
+        $this->paginate = array(
+            'conditions' => array('status IN'=> array(1)),
+            'limit' => 1,
+            'order' => array('id' => 'desc')
+        );
+
+        $polls_data = $this->paginate('Poll');
+
+        //$this->pre($videos_data);exit;
+
+        $get_sidebarupr_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'6\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebarupr_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>6)));
+        foreach ($get_sidebarupr_data_by_category as $sidebarupr_key => $sidebarupr_data)
+        {
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_id'] = $sidebarupr_catdata['NewsCategory']['id'];
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_name'] = $sidebarupr_catdata['NewsCategory']['name'];
+            $get_sidebarupr_data_by_category[$sidebarupr_key]['News']['cat_slug'] = $sidebarupr_catdata['NewsCategory']['slug'];
+        }
+
+        $get_sidebardown_data_by_category = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\'8\',categories)'), 'limit' => 7, 'order' => array('id' => 'desc')));
+        //$this->pre($get_morenews_data_by_category);exit;
+        $sidebardown_catdata = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>8)));
+        foreach ($get_sidebardown_data_by_category as $sidebardown_key => $sidebardown_data)
+        {
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_id'] = $sidebardown_catdata['NewsCategory']['id'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_name'] = $sidebardown_catdata['NewsCategory']['name'];
+            $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_slug'] = $sidebardown_catdata['NewsCategory']['slug'];
+        }
+
+        $this->set('polls_data',$polls_data);
+        $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);
+        $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);      
     }
 
 }

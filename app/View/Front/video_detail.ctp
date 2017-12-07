@@ -2,18 +2,14 @@
 echo $this->element('frontheader');
 ?>
 <div class="breadcrumb">
-	<div class="container">
-		<section class="article-breadcrumb">
-			<?php
-			$category_breadcrumb = '<span class="br-arrow">» </span> Videos';
-			?>
-			<a href="<?=DEFAULT_URL?>" title="Home"> Home</a><?=$category_breadcrumb;?><span class="br-arrow">» </span><?php echo $video_page_title; ?>
-		</section>
-	</div>
+	<section class="article-breadcrumb">
+		<?php
+		$category_breadcrumb = '<span class="br-arrow">» </span> <a href="'.DEFAULT_URL.'videos">Videos</a>';
+		?>
+		<a href="<?=DEFAULT_URL?>" title="Home"> Home</a><?=$category_breadcrumb;?><span class="br-arrow">» </span><?php echo $video_page_title; ?>
+	</section>
 </div>
-<section class="main details-listing-part"> <!-- sec-part1 start -->
-   <div class="container"> 
-	   <div class="left-part"> <!-- left-part start --> 
+<div class="left-part"> <!-- left-part start --> 
             <style>
             .youtube .play {
 			    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAERklEQVR4nOWbTWhcVRTHb1IJVoxGtNCNdal2JYJReC6GWuO83PM/59yUS3FRFARdFlwYP1CfiojQWt36sRCUurRIdVFXIn41lAoVdRGrG1M01YpKrWjiYmaSl8ybZJL3cd+YA//NLObd3++eO8x79z5jSq5Gw+8kov0AP8vMR5l1BtBZQM4B8ks75wCdZdYZZj5qLZ4hov2Nht9Z9vhKKSIaB/gI4M4w62KeAO6Mte4lYOq20FxrlqqOibhHmeWbvNC9ZfDX1mLae391aN6limO/gwgvAPJbWeAZuSDingdwXTBw7/0IsyaA/Fkh+KqOkD+YNfHej1QKD+y7iVlOhgLvFqFfNJvNGyuBJ+KDAF8MDd0tgS8y64OlgSdJMsysL4cG7SOHkyQZLhTee7+d2R2rAVy/S+Jd7/32ouBHAP4gNNRGQyTHc/84NhqNywZp5rvjjnnvt21aABFeCQ+RLwAf2hQ8s7sv9OCLk6AHNgQvIrvbfzKCD76g/O6cu7lf/iER/aQGgy448pExZmhdegAPhR9sObFWH1gT3lp7DaA/5bkIgJhZPgsNmz02novj+KqeApj1ubwXWe4kdyeznAgNvTpE/HQmvKqOMeuFogTUVQSRno+iaLRLAJF7uIgL9O4ubgL8aWgB7S44mNX+35YpICUiAvS9sBLkq1WzT+NFffl6AuoiApi6NT37h6sWkBIRZGkQ8YtLgyji6e1mBYTqCEBPG2Naz+0BWQgtoGoRgCzEsd9hAN1X5BfnFZASUfrSAFQNsyZ1FJASUVpHiLinDJG8U2cBZYogkrcNs5waBAGdstbeU9zdqpw0gPwwSAI6VUxHyFlDpOcHUUBBIuYNs14aZAE5RVwyzPr3/0EAEY0TyfGNjBWQvwZ +CTSbehfAH29mrID8bET0+0EUkAd8WYDOmqJ3ecsG30yr9wqRfm6Y+a1BEFDEjHfHvWmY9ck6CygHvBVr8Xhtb4ZE5HZA3y8DvBNA1TjnrmXWf+sioMwZX5V/VHXMGGMMoKdDCxCRvRWBdzKzdHEO+EisilbPyopHYqp6S9UCAsz4iojI7hUDAtyXVQgIDd6KnOoaWNkbI6FaPSuZGyMArsi7MZoloB4zviI/Nhr3X95jltwTRQmoIfgisy5ai+me67OI7fE4nrqjrqfK1t0eby0FPRB6oGVlchL3rgnfrq19RKbVBdhV9IOSwJmfmJi4vi/4ThERitwyCxVAFqydshuCX5awhQ9KtmuIWd8IDZED/nXT77rvVVv6sHRKwjYi91poqP7Dr+Y6JJ1VSZIMA3wkPNy6bX+o8Bcm0sXMdwM8Fxo0A3xORPaWBp6uPXsmbxCRD0NDL0dOANhVCXy6iAjMcjbcrMt3RITKwdMVRdFo+y5yvkL4eWZ+zHt/ZVD4dEVRNGotpst+dZZZH8k86lqn2pIvT/eqrNfn2xuyqYPZ8mv7s8pfn/8Pybm4TIjanscAAAAASUVORK5CYII=") no-repeat center center;
@@ -148,47 +144,27 @@ echo $this->element('frontheader');
            		?>
 			   	<div class="clear"></div>
          	</div>  	  
-	   	</div> <!-- left-part end -->
+</div> <!-- left-part end -->
 	   
-	    <div class="right-part"> <!-- right-part start -->
-	        <!-- Simple Currency Rates Table START -->
-			<link rel="stylesheet" type="text/css" href="//www.exchangerates.org.uk/widget/ER-SCRT2-css.php?w=180&nb=10&bdrc=E0E0E0&mbg=FFFFFF&fc=333333&tc=333333" media="screen" />
-	        <div class="currency-rate-widget">
-               	<!--<img src="<?=DEFAULT_URL?>img/currency-rate.jpg" alt="" />-->
-				<!--<div id="erscrt2">-->
-					<div id="erscrt2-widget" style="width:264px;"></div>
-					<div id="erscrt2-infolink"></div>
-					<script type="text/javascript">	
-					var tz = '5.5';
-					var w = '180';
-					var mc = 'NZD';
-					var nb = '10';
-					var c1 = 'USD';
-					var c2 = 'EUR';
-					var c3 = 'AUD';
-					var c4 = 'JPY';
-					var c5 = 'INR';
-					var c6 = 'CAD';
-					var c7 = 'ZAR';
-					var c8 = 'BYR';
-					var c9 = 'SGD';
-					var c10 = 'CNY';
-					var t = 'Live Exchange Rates';
-					var tc = '333333';
-					var bdrc = 'E0E0E0';
-					var mbg = 'FFFFFF';
-					var fc = '333333';
+<div class="right-part inner-right"> <!-- right-part start -->
+	<?php
+  	if($ads_category_page_rightbar_data)
+  	{
+  		if(!empty($ads_category_page_rightbar_data['Advertise']['source'])){
+  		?>
+  		<div class="adv1"><a target="_blank" href="<?=$ads_category_page_rightbar_data['Advertise']['link']?>"><img src="<?=$ads_category_page_rightbar_data['Advertise']['source']?>" alt="<?=$ads_category_page_rightbar_data['Advertise']['title']?>" /></a></div>
+  		<?php
+  		}
+  	}
+  	?> 
 
-					var ccHost = (("https:" == document.location.protocol) ? "https://www." : "http://www.");
-					document.write(unescape("%3Cscript src='" + ccHost + "exchangerates.org.uk/widget/ER-SCRT2-1.php' type='text/javascript'%3E%3C/script%3E"));
-					</script>
-				<!--</div>-->
-				<!-- Simple Currency Rates Table END -->
-            </div> 
-			 
-            <h2 class="main-title violet">Gujarat</h2>
-		    <span class="violet-border"></span>
-	        <div class="clear"></div>  
+	<h2 class="main-title">Commodity Market</h2>
+	<iframe frameborder="0" src="http://www.indianotes.com/widgets/currency-prices/index.php?type=all-currency-prices&w=300&h=200" width="300" height="200" scrolling="no"></iframe>
+
+	<a href="<?php echo $this->Common->get_listing_url(6); ?>"><h2 class="main-title">ગૌ સેવા</h2></a>
+	<div class="clear"></div>
+	<div id="PressmyCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
 			<?php
        		if(count($news_page_sidebarupr) > 0){
        		
@@ -200,7 +176,7 @@ echo $this->element('frontheader');
 						$sidebarupr_image = DEFAULT_URL.'img/new-default.png';
 					}
        			?>
-       				<div class="grid-listing">
+       				<div class="item <?php if($sidebarupr_key == 0){ echo 'active'; } ?> news-b">
        					<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$sidebarupr_data['News']['cat_slug'].'/'.$sidebarupr_data['News']['slug']?>"><img src="<?=$sidebarupr_image?>" alt="" /></a>
        					<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$sidebarupr_data['News']['cat_slug'].'/'.$sidebarupr_data['News']['slug']?>"><h3><?php echo mb_substr($sidebarupr_data['News']['title'], 0, 80); ?></h3></a>
        				</div>
@@ -208,45 +184,44 @@ echo $this->element('frontheader');
        			}
        		}
        		?>
-         	<?php
- 		  	if($ads_detail_page_rightbar_data)
- 		  	{
- 		  		if(!empty($ads_detail_page_rightbar_data['Advertise']['source'])){
- 		  		?>
- 		  		<div class="adv5"><a target="_blank" href="<?=$ads_detail_page_rightbar_data['Advertise']['link']?>"><img src="<?=$ads_detail_page_rightbar_data['Advertise']['source']?>" alt="<?=$ads_detail_page_rightbar_data['Advertise']['title']?>" /></a></div>
- 		  		<?php
- 		  		}
- 		  	}
- 		  	?> 		
-            <br/>
-            <h2 class="main-title violet">India</h2>
-		    <span class="violet-border"></span>
-	        <div class="clear"></div> 
-	        <div class="gray-bg1">
-			<?php
-       		if(count($news_page_sidebardown) > 0){
-       		
-       			foreach ($news_page_sidebardown as $sidebardown_key => $sidebardown_data) {
-       				if(!empty($sidebardown_data['News']['images'])){
-						$sidebardown_images = explode(',', $sidebardown_data['News']['images']);
-						$sidebardown_image = $sidebardown_images[0];
-					} else {
-						$sidebardown_image = DEFAULT_URL.'img/new-default.png';
-					}
-       			?>
-       				<div class="grid-listing">
-       					<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$sidebardown_data['News']['cat_slug'].'/'.$sidebardown_data['News']['slug']?>"><img src="<?=$sidebardown_image?>" alt="" /></a>
-       					<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$sidebardown_data['News']['cat_slug'].'/'.$sidebardown_data['News']['slug']?>"><h3><?php echo mb_substr($sidebardown_data['News']['title'], 0, 80); ?></h3></a>
-       				</div>
-       			<?php
-       			}
-       		}
-       		?>		   
-		    </div>			 
-	   	</div> <!-- right-part end -->  
-	    <div class="clear"></div>
-   </div>
-</section> <!-- sec-part1 end -->
+		</div>			
+		<a class="left carousel-control" href="#PressmyCarousel" data-slide="prev">
+		   <span class="glyphicon-chevron-left"><img src="images/prev-arrow.png" alt="arrow"></span>
+		</a>
+		<a class="right carousel-control" href="#PressmyCarousel" data-slide="next">
+		    <span class="glyphicon-chevron-right"><img src="images/left-arrow.png" alt="arrow"></span>
+		</a>
+	</div>
+	<div class="clear"></div>
+		   
+	<a href="<?php echo $this->Common->get_listing_url(8); ?>"><h2 class="main-title">લેં-વેંચ</h2></a>
+    <div class="clear"></div> 
+   	<div class="gray-bg">
+	   	<?php
+   		if(count($news_page_sidebardown) > 0){
+   		
+   			foreach ($news_page_sidebardown as $sidebardown_key => $sidebardown_data) {
+   				if(!empty($sidebardown_data['News']['images'])){
+					$sidebardown_images = explode(',', $sidebardown_data['News']['images']);
+					$sidebardown_image = $sidebardown_images[0];
+				} else {
+					$sidebardown_image = DEFAULT_URL.'img/new-default.png';
+				}
+   			?>
+   				<div class="grid-listing">
+   					<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$sidebardown_data['News']['cat_slug'].'/'.$sidebardown_data['News']['slug']?>"><img src="<?=$sidebardown_image?>" alt="" /></a>
+   					<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$sidebardown_data['News']['cat_slug'].'/'.$sidebardown_data['News']['slug']?>"><h3><?php echo mb_substr($sidebardown_data['News']['title'], 0, 80); ?></h3></a>
+   				</div>
+   			<?php
+   			}
+   		}
+   		?>
+  	</div>
+  	<div class="clear"></div>
+</div> <!-- right-part end -->  
+
+	    
+<div class="clear"></div>
 <?php
 echo $this->element('frontfooter');
 ?>

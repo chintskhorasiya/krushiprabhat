@@ -69,6 +69,16 @@
 	    array('controller' => 'front', 'action' => 'news_search_results')
 	);
 
+	Router::connect(
+	    '/pollsubmit/*',
+	    array('controller' => 'front', 'action' => 'pollsubmit')
+	);
+
+	Router::connect(
+	    '/polls/*',
+	    array('controller' => 'front', 'action' => 'polls_listing')
+	);
+
     /*Router::connect(
 	    '/admin',
 	    array('controller' => 'users')

@@ -172,10 +172,10 @@ echo $this->element('frontheader');
        		?>
 		</div>			
 		<a class="left carousel-control" href="#PressmyCarousel" data-slide="prev">
-		   <span class="glyphicon-chevron-left"><img src="images/prev-arrow.png" alt="arrow"></span>
+		   <span class="glyphicon-chevron-left"><img src="<?=DEFAULT_URL?>img/prev-arrow.png" alt="arrow"></span>
 		</a>
 		<a class="right carousel-control" href="#PressmyCarousel" data-slide="next">
-		    <span class="glyphicon-chevron-right"><img src="images/left-arrow.png" alt="arrow"></span>
+		    <span class="glyphicon-chevron-right"><img src="<?=DEFAULT_URL?>img/left-arrow.png" alt="arrow"></span>
 		</a>
 	</div>
 	<div class="clear"></div>

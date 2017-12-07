@@ -4,66 +4,66 @@ echo $this->element('frontheader');
 <div class="breadcrumb">
 	<section class="article-breadcrumb">
 		<?php
-		if(!empty($category_title)){
-			$category_breadcrumb = '<span class="br-arrow">» </span><a href="'.DEFAULT_URL.'news/'.$this->Common->get_cat_slug($category_id).'">'.$category_title.'</a>';	
-		} else {
-			$category_breadcrumb = '';
-		}
+		$category_breadcrumb = '<span class="br-arrow">» </span> Videos';
 		?>
 		<a href="<?=DEFAULT_URL?>" title="Home"> Home</a><?=$category_breadcrumb;?>
 	</section>
 </div>
-
-<div class="left-part"> <!-- left-part start --> 
-	<section class="main listing-part"> <!-- sec-part1 start -->
-		<div class="row">
-			<?php
-			if(count($category_news_data) > 0)
-	     	{
-	     		$last_catenews_count = count($category_news_data)-1;
-	     		foreach ($category_news_data as $cat_news_key => $cat_news_data)
-	     		{
-	     			if(!empty($cat_news_data['News']['images'])){
-						$catenews_images = explode(',', $cat_news_data['News']['images']);
-						$catenews_image = $catenews_images[0];
-					} else {
-						$catenews_image = DEFAULT_URL.'img/new-default.png';
-					}
-		     	if($cat_news_key == 0){
-		    ?>
-			<div class="cat-main">
-          		<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$cat_news_data['News']['cat_slug'].'/'.$cat_news_data['News']['slug']?>"><h3 class="col-md-12"><?php echo mb_substr($cat_news_data['News']['title'], 0, 80); ?></h3></a>		
-		 		<div class="col-md-5">
-            		<div id="listmyCarousel" class="carousel slide" data-ride="carousel"> 
-						<div class="carousel-inner">
-					  		<div class="news-b">
-  					      		<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$cat_news_data['News']['cat_slug'].'/'.$cat_news_data['News']['slug']?>"><img src="<?=$catenews_image?>" alt="" /></a> 
-					  		</div> 
-						</div>  
-					</div>
-         		</div>	
-	         	<div class="col-md-7 list-dec"> 
-		            <?php echo mb_substr($cat_news_data['News']['content'], 0, 240); ?>
-	         	</div>	 
-		  		<div class="clear"></div> 
-		 	</div>
-		 		<?php } ?>
-		 		<?php if($cat_news_key >= 1 && $cat_news_key <= $last_catenews_count){ ?>
-				<?php if($cat_news_key == 1){ ?><div class="col-md-12 cat-list-grid"><?php } ?>
-		      	<div class="news-b1">
-		        	<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$cat_news_data['News']['cat_slug'].'/'.$cat_news_data['News']['slug']?>"><img class="cat-list-imgs" src="<?=$catenews_image?>" height="100" alt="" /></a>
-				 	<div class="cat-list-grid-title">
-				    	<a href="<?=DEFAULT_FRONT_NEWS_DETAIL_URL.$cat_news_data['News']['cat_slug'].'/'.$cat_news_data['News']['slug']?>"><h3><?php echo mb_substr($cat_news_data['News']['title'], 0, 50); ?></h3></a> 
-				 	</div> 
-			     	<div class="clear"></div>
-			  	</div>
-			   	<?php if($cat_news_key == $last_catenews_count){ ?><div class="clear"></div></div><?php } ?>
-			   	<?php } ?>
-			<?php } ?>
-			<?php } ?>
-        </div> 		  
-	    <div class="clear"></div> 
-    </section> <!-- sec-part1 end -->
+<div class="left-part"> <!-- left-part start -->
+	<div class="col-md-12 cat-list-grid">
+	<?php
+	if(count($polls_data) > 0)
+	{
+		$last_polls_count = count($polls_data)-1;
+		foreach ($polls_data as $poll_key => $poll_data)
+		{
+		?>
+		<div class="col-md-6">
+			<div class="home-online-pol">
+				<h2 class="main-title">Online Poll</h2>
+				<?php
+		        if(!empty($_SESSION['vote_success_msg'])){
+		            ?>
+		            <div class="alert alert-success" id="#vote_success">
+		                <?php echo $_SESSION['vote_success_msg'];unset($_SESSION['vote_success_msg']); ?>
+		            </div>
+		            <?php
+		        }
+		        ?>
+				<div class="home-poll">
+					<?php
+					//echo '<pre>';
+					//print_r($latest_poll_homepage_data);
+					//echo '</pre>';
+					?>
+					<h3><?php echo mb_substr($poll_data['Poll']['question'], 0, 100); ?></h3>
+					<form action="<?=DEFAULT_URL?>pollsubmit" method="post" enctype="multipart/form-data">
+						<input name="poll_answer" type="radio" value="1"><?php echo $poll_data['Poll']['answer1']; ?><br>
+						<input name="poll_answer" type="radio" value="2"><?php echo $poll_data['Poll']['answer2']; ?><br>
+						<input type="hidden" name="poll_id" id="poll_id" value="<?php echo $poll_data['Poll']['id']; ?>" />
+						<input type="hidden" name="redirect_url" id="redirect_url" value="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
+						<input class="buton" type="submit" value="Vote" style="">
+					</form>
+				</div>
+			</div>
+ 		</div>	
+  		<?php
+  		}
+  	?>
+  	<div class="clear"></div>
+  	<?php echo $this->Paginator->prev('« Previous', array('class' => 'btn btn-default'), null, 
+        array('class' => 'disabled')); ?>
+  	<!-- Shows the page numbers -->
+    <?php echo $this->Paginator->numbers(); ?>
+    <!-- Shows the next and previous links -->
+    <?php echo $this->Paginator->next('Next »', array('class' => 'btn btn-default'), null,
+        array('class' => 'disabled')); ?> 
+    <!-- prints X of Y, where X is current page and Y is number of pages -->
+    <?php echo $this->Paginator->counter(); ?>
+	<?php
+	}
+	?>
+	</div>
 </div> <!-- left-part end -->
 
 <div class="right-part inner-right"> <!-- right-part start -->
@@ -106,10 +106,10 @@ echo $this->element('frontheader');
        		?>
 		</div>			
 		<a class="left carousel-control" href="#PressmyCarousel" data-slide="prev">
-		   <span class="glyphicon-chevron-left"><img src="<?=DEFAULT_URL?>img/prev-arrow.png" alt="arrow"></span>
+		   <span class="glyphicon-chevron-left"><img src="images/prev-arrow.png" alt="arrow"></span>
 		</a>
 		<a class="right carousel-control" href="#PressmyCarousel" data-slide="next">
-		    <span class="glyphicon-chevron-right"><img src="<?=DEFAULT_URL?>img/left-arrow.png" alt="arrow"></span>
+		    <span class="glyphicon-chevron-right"><img src="images/left-arrow.png" alt="arrow"></span>
 		</a>
 	</div>
 	<div class="clear"></div>
@@ -140,8 +140,7 @@ echo $this->element('frontheader');
   	<div class="clear"></div>
 </div> <!-- right-part end -->  
 
-<div class="clear"></div>   
-
+<div class="clear"></div>
 <?php
 echo $this->element('frontfooter');
 ?>

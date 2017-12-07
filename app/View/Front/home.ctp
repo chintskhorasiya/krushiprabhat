@@ -286,12 +286,28 @@ echo $this->element('frontheader');
   	?> 	
 
 	<div class="home-online-pol">
-		<h2 class="main-title">Online Poll</h2>
+		<a href="<?=DEFAULT_URL?>polls"><h2 class="main-title">Online Poll</h2></a>
+		<?php
+        if(!empty($_SESSION['vote_success_msg'])){
+            ?>
+            <div class="alert alert-success" id="#vote_success">
+                <?php echo $_SESSION['vote_success_msg'];unset($_SESSION['vote_success_msg']); ?>
+            </div>
+            <?php
+        }
+        ?>
 		<div class="home-poll">
-			<h3>કેએનઆલા ઉતપાદન પર એએએફસીનો તાજેતરનો અહેવાલ ...</h3>
-			<form action="" method="post" enctype="multipart/form-data">
-				<input name="poll" type="radio" value="1">Yes<br>
-				<input name="poll" type="radio" value="2">No<br>
+			<?php
+			//echo '<pre>';
+			//print_r($latest_poll_homepage_data);
+			//echo '</pre>';
+			?>
+			<h3><?php echo mb_substr($latest_poll_homepage_data['Poll']['question'], 0, 100); ?></h3>
+			<form action="<?=DEFAULT_URL?>pollsubmit" method="post" enctype="multipart/form-data">
+				<input name="poll_answer" type="radio" value="1"><?php echo $latest_poll_homepage_data['Poll']['answer1']; ?><br>
+				<input name="poll_answer" type="radio" value="2"><?php echo $latest_poll_homepage_data['Poll']['answer2']; ?><br>
+				<input type="hidden" name="poll_id" id="poll_id" value="<?php echo $latest_poll_homepage_data['Poll']['id']; ?>" />
+				<input type="hidden" name="redirect_url" id="redirect_url" value="<?php echo DEFAULT_URL.'#vote_success'; ?>" />
 				<input class="buton" type="submit" value="Vote" style="">
 			</form>
 		</div>
