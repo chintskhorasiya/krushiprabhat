@@ -78,8 +78,10 @@ echo $this->element('frontheader');
   	}
   	?> 
 
-	<h2 class="main-title">Commodity Market</h2>
-	<iframe frameborder="0" src="http://www.indianotes.com/widgets/currency-prices/index.php?type=all-currency-prices&w=300&h=200" width="300" height="200" scrolling="no"></iframe>
+	<div class="commo-market-widget">
+		<h2 class="main-title">Commodity Market</h2>
+		<iframe frameborder="0" src="http://www.indianotes.com/widgets/currency-prices/index.php?type=all-currency-prices&w=300&h=200" width="300" height="200" scrolling="no"></iframe>
+	</div>
 
 	<a href="<?php echo $this->Common->get_listing_url(6); ?>"><h2 class="main-title">ગૌ સેવા</h2></a>
 	<div class="clear"></div>

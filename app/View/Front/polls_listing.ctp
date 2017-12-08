@@ -78,8 +78,10 @@ echo $this->element('frontheader');
   	}
   	?> 
 
-	<h2 class="main-title">Commodity Market</h2>
-	<iframe frameborder="0" src="http://www.indianotes.com/widgets/currency-prices/index.php?type=all-currency-prices&w=300&h=200" width="300" height="200" scrolling="no"></iframe>
+	<div class="commo-market-widget">
+		<h2 class="main-title">Commodity Market</h2>
+		<iframe frameborder="0" src="http://www.indianotes.com/widgets/currency-prices/index.php?type=all-currency-prices&w=300&h=200" width="300" height="200" scrolling="no"></iframe>
+	</div>
 
 	<a href="<?php echo $this->Common->get_listing_url(6); ?>"><h2 class="main-title">ગૌ સેવા</h2></a>
 	<div class="clear"></div>
@@ -106,10 +108,10 @@ echo $this->element('frontheader');
        		?>
 		</div>			
 		<a class="left carousel-control" href="#PressmyCarousel" data-slide="prev">
-		   <span class="glyphicon-chevron-left"><img src="images/prev-arrow.png" alt="arrow"></span>
+		   <span class="glyphicon-chevron-left"><img src="<?=DEFAULT_URL?>img/prev-arrow.png" alt="arrow"></span>
 		</a>
 		<a class="right carousel-control" href="#PressmyCarousel" data-slide="next">
-		    <span class="glyphicon-chevron-right"><img src="images/left-arrow.png" alt="arrow"></span>
+		    <span class="glyphicon-chevron-right"><img src="<?=DEFAULT_URL?>img/left-arrow.png" alt="arrow"></span>
 		</a>
 	</div>
 	<div class="clear"></div>
