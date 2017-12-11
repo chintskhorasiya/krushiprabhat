@@ -130,8 +130,9 @@ class FrontController extends AppController
         $this->set('latest_videos_homepage_data', $latest_videos_homepage_data);
 
         $this->loadmodel('Poll');
-        $latest_poll_homepage_data = $this->Poll->find('first', array('conditions' => array('status IN'=> array(1)), 'order' => array('id' => 'desc')));
-        $this->set('latest_poll_homepage_data', $latest_poll_homepage_data);
+        $latest_polls_homepage_data = $this->Poll->find('all', array('conditions' => array('status IN'=> array(1)), 'limit' => 5, 'order' => array('id' => 'desc')));
+        $this->set('latest_polls_homepage_data', $latest_polls_homepage_data);
+        $this->set('owl_enabled', 'enabled');
 
     }
 
@@ -278,6 +279,7 @@ class FrontController extends AppController
         }
 
         $this->set('page_name', 'news_detail');
+        $this->set('owl_enabled', 'enabled');
         $this->set('category_id', $category_id);
         $this->set('category_title', $category_title);
         $this->set('news_page_id', $news_page_id);
@@ -501,7 +503,7 @@ class FrontController extends AppController
                 //$this->pre($this->request->data);exit;
                 $answer = (int) trim($this->request->data['poll_answer']);
                 $poll_id = (int) trim($this->request->data['poll_id']);
-                $redirect_url = $this->request->data['redirect_url'];
+                //$redirect_url = $this->request->data['redirect_url'];
      
                 if(!empty($answer) && !empty($poll_id))
                 {
@@ -524,29 +526,40 @@ class FrontController extends AppController
                         $update_poll_data['Poll']['last_answer'] = 1;
                     }
                     //$this->pre($update_poll_data);exit;
-                    $this->Poll->save($update_poll_data, false);
+                    $saved = $this->Poll->save($update_poll_data, false);
 
-                    $_SESSION['vote_success_msg'] = "Thanks for voting.";
+                    //$_SESSION['vote_success_msg'] = "Thanks for voting.";
 
-                    if(!empty($redirect_url)){
+                    /*if(!empty($redirect_url)){
                         $this->redirect($redirect_url);
                     } else {
                         $this->redirect(DEFAULT_URL);
+                    }*/
+
+                    if($saved){
+                        echo 'success';exit;
+                    }
+                    else
+                    {
+                        echo 'failed';exit;
                     }
                 }
                 else
                 {
-                    $this->redirect(DEFAULT_URL);
+                    //$this->redirect(DEFAULT_URL);
+                    echo 'failed';exit;
                 }
             }
             else
             {
-                $this->redirect(DEFAULT_URL);
+                //$this->redirect(DEFAULT_URL);
+                echo 'failed';exit;
             }
         }
         else
         {
-            $this->redirect(DEFAULT_URL);
+            //$this->redirect(DEFAULT_URL);
+            echo 'failed';exit;
         }
 
     }
@@ -673,6 +686,7 @@ class FrontController extends AppController
             $get_sidebardown_data_by_category[$sidebardown_key]['News']['cat_slug'] = $sidebardown_catdata['NewsCategory']['slug'];
         }
 
+        $this->set('owl_enabled', 'enabled');
         $this->set('page_name', 'gallery_detail');
         $this->set('gallery_page_title', $gallery_page_title);
         $this->set('gallery_page_images', $gallery_page_images);
@@ -682,6 +696,10 @@ class FrontController extends AppController
         $this->set('news_page_sidebarupr', $get_sidebarupr_data_by_category);
         $this->set('news_page_sidebardown', $get_sidebardown_data_by_category);
 
+    }
+
+    public function live_tv(){
+        $this->set('livetv_page_title', 'Live TV');
     }
 
 }

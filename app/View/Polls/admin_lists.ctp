@@ -83,11 +83,13 @@
                                 <table class="display table table-bordered table-striped" id="dynamic-table">
                                     <thead>
                                         <tr>
-                                            <th width="5%"></th>
+                                            <th width="1%"></th>
                                             <th width="20%">Created Date</th>
                                             <th width="40%">Question</th>
-                                            <th width="5%">Status</th>
-                                            <th width="30%">Action</th>
+                                            <th width="10%">Answer1</th>
+                                            <th width="10%">Answer2</th>
+                                            <th width="1%">Status</th>
+                                            <th width="48%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,6 +110,16 @@
                                                 <td>
                                                     <div class="btn-group zn-listing-link">
                                                         <?php echo $polls_data[$i]['Poll']['question']; ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group zn-listing-link">
+                                                        <?php echo $polls_data[$i]['Poll']['answer1']; ?> (<?php echo $polls_data[$i]['Poll']['answer1_vote']; ?> votes)
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group zn-listing-link">
+                                                        <?php echo $polls_data[$i]['Poll']['answer2']; ?> (<?php echo $polls_data[$i]['Poll']['answer2_vote']; ?> votes)
                                                     </div>
                                                 </td>
 

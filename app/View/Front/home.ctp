@@ -285,7 +285,7 @@ echo $this->element('frontheader');
   	}
   	?> 	
 
-	<div class="home-online-pol">
+	<!--<div class="home-online-pol-old" style="display:none">
 		<a href="<?=DEFAULT_URL?>polls"><h2 class="main-title">Online Poll</h2></a>
 		<?php
         if(!empty($_SESSION['vote_success_msg'])){
@@ -297,19 +297,36 @@ echo $this->element('frontheader');
         }
         ?>
 		<div class="home-poll">
-			<?php
-			//echo '<pre>';
-			//print_r($latest_poll_homepage_data);
-			//echo '</pre>';
-			?>
 			<h3><?php echo mb_substr($latest_poll_homepage_data['Poll']['question'], 0, 100); ?></h3>
 			<form action="<?=DEFAULT_URL?>pollsubmit" method="post" enctype="multipart/form-data">
-				<input name="poll_answer" type="radio" value="1"><?php echo $latest_poll_homepage_data['Poll']['answer1']; ?><br>
-				<input name="poll_answer" type="radio" value="2"><?php echo $latest_poll_homepage_data['Poll']['answer2']; ?><br>
+				<input name="poll_answer" id="poll_answer" type="radio" value="1"><?php echo $latest_poll_homepage_data['Poll']['answer1']; ?><br>
+				<input name="poll_answer" id="poll_answer" type="radio" value="2"><?php echo $latest_poll_homepage_data['Poll']['answer2']; ?><br>
 				<input type="hidden" name="poll_id" id="poll_id" value="<?php echo $latest_poll_homepage_data['Poll']['id']; ?>" />
 				<input type="hidden" name="redirect_url" id="redirect_url" value="<?php echo DEFAULT_URL.'#vote_success'; ?>" />
-				<input class="buton" type="submit" value="Vote" style="">
+				<input class="buton vote-btn" data-poll="<?php echo $latest_poll_homepage_data['Poll']['id']; ?>" type="submit" value="Vote" style="">
 			</form>
+		</div>
+	</div>-->
+
+	<div class="home-online-pol">
+		<h2 class="main-title">Online Poll</h2>
+		<div class="owl-carousel owl-theme poll-carousel">
+		<?php
+		if(count($latest_polls_homepage_data) > 0){
+			foreach ($latest_polls_homepage_data as $poll_num => $latest_poll_homepage_data) {
+				?>
+				<div class="home-poll item">
+					<h3><?php echo mb_substr($latest_poll_homepage_data['Poll']['question'], 0, 100); ?></h3>
+					<form action="<?=DEFAULT_URL?>pollsubmit" method="post" enctype="multipart/form-data">
+						<input name="poll_answer" id="poll_answer_<?php echo $latest_poll_homepage_data['Poll']['id']; ?>" type="radio" value="1"><?php echo $latest_poll_homepage_data['Poll']['answer1']; ?><br>
+						<input name="poll_answer" id="poll_answer_<?php echo $latest_poll_homepage_data['Poll']['id']; ?>" type="radio" value="2"><?php echo $latest_poll_homepage_data['Poll']['answer2']; ?><br>
+						<input class="buton vote-btn" data-poll="<?php echo $latest_poll_homepage_data['Poll']['id']; ?>" type="button" value="Vote" style="">
+					</form>
+				</div>
+				<?php
+			}
+		}
+		?>
 		</div>
 	</div>
 
@@ -399,7 +416,61 @@ echo $this->element('frontheader');
   		}
   	}
   	?> 	
+<script type="text/javascript">
+	jQuery('.vote-btn').click(function(){
+		var pollID = jQuery(this).attr('data-poll');
+		//alert(pollID);
+		//console.log(pollID);
+		var selectedAnswer = jQuery('#poll_answer_'+pollID+':checked').val();
+		//alert(selectedAnswer);
+		//console.log(selectedAnswer);
+		var jqxhr = $.ajax({
+		  method: "POST",
+		  url: "<?=DEFAULT_URL?>pollsubmit",
+		  data: { poll_answer: selectedAnswer, poll_id: pollID }
+		})
+	  	.done(function(data) {
+	  		//console.log(data);
+	    	if(data == "success"){
+	    		jQuery('.poll-carousel').before('<div class="alert alert-dismissable alert-success" role="alert" id="#vote_success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Thanks for voting.</strong></div>');
+	    	} else {
+	    		jQuery('.poll-carousel').before('<div class="alert alert-dismissable alert-danger" role="alert""><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Something went wrong.</strong></div>');
+	    	}
+	  	})
+	  	.fail(function(data) {
+	  		//console.log(data);
+	    	jQuery('.poll-carousel').before('<div class="alert alert-dismissable alert-danger" role="alert""><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Something went wrong.</strong></div>');
+	  	});
+	});
 
+	$(document).ready(function() {
+      var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        margin: 10,
+        nav: true,
+        loop: true,
+        //autoHeight:true,
+        autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        video:true,
+        lazyLoad:true,
+        center:true,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 1
+          }
+        }
+      })
+    });
+</script>
 <?php
 echo $this->element('frontfooter');
 ?>

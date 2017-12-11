@@ -55,7 +55,7 @@ class AppController extends Controller {
 
         //$this->pre($this->params);
 
-        if($this->params['controller'] == "pages" || $this->params['controller'] == "newscategories" || $this->params['controller'] == "news" || $this->params['controller'] == "advertises" || $this->params['controller'] == "videos" || $this->params['controller'] == "galleries" || $this->params['controller'] == "epapers" || $this->params['controller'] == "settings")
+        if($this->params['controller'] == "pages" || $this->params['controller'] == "newscategories" || $this->params['controller'] == "news" || $this->params['controller'] == "advertises" || $this->params['controller'] == "videos" || $this->params['controller'] == "galleries" || $this->params['controller'] == "epapers" || $this->params['controller'] == "polls" || $this->params['controller'] == "settings")
         {
             $pagenames = $this->params['controller'].'/'.$this->params['action'];
         }
@@ -296,7 +296,11 @@ class AppController extends Controller {
             'galleries/admin_add'=>'Add Gallery',
             'galleries/admin_edit'=>'Edit Gallery',
             'gallery_listing'=>'Photo Gallery',
-            'gallery_detail'=>$dynamic_name
+            'gallery_detail'=>$dynamic_name,
+            'polls/admin_search'=>'Searched Polls List',
+            'polls/admin_lists'=>'Polls List',
+            'polls/admin_add'=>'Add Poll',
+            'polls/admin_edit'=>'Edit Poll'
         );
 //
         //echo $title_arr[$pagenames];

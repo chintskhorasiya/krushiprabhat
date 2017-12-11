@@ -42,7 +42,7 @@
 		   <div class="clear"></div>
 
 		   	<ul class="logo-menu">  
-			 <li><a href="#">લાઈવ ટીવી</a></li>
+			 <li><a href="<?=DEFAULT_URL?>live-tv">લાઈવ ટીવી</a></li>
 			 <li><a href="<?=DEFAULT_URL?>videos">વિડીયો</a></li>
 			 <li><a href="<?=DEFAULT_URL?>gallery">ફોટો ગેલેરી</a></li> 
 			</ul> 

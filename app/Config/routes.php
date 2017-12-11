@@ -89,6 +89,11 @@
 	    array('controller' => 'front', 'action' => 'gallery_detail')
 	);
 
+	Router::connect(
+	    '/live-tv/*',
+	    array('controller' => 'front', 'action' => 'live_tv')
+	);
+
     /*Router::connect(
 	    '/admin',
 	    array('controller' => 'users')
