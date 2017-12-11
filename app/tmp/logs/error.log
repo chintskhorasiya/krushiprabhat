@@ -78257,3 +78257,345 @@ Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
 Stack Trace:
 #0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-12-11 17:03:04 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:03:04 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:03:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/js/jquery-1.10.2.min.map
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:12:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/js/jquery-1.10.2.min.map
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:12:24 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:12:24 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:09 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:09 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:09 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/js/jquery-1.10.2.min.map
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:41 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:41 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/js/jquery-1.10.2.min.map
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/js/jquery-1.10.2.min.map
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:52 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:13:52 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:14:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/js/jquery-1.10.2.min.map
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:14:07 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:14:07 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:20:59 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:20:59 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:21:53 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:21:53 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:26:18 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:26:18 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:26:32 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:26:32 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:27:34 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:27:34 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:28:00 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:28:00 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:33:31 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 17:33:31 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 18:15:25 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 18:15:25 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 18:25:56 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 18:25:56 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 18:26:16 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/GujLekha_1.ttf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-11 18:26:16 Error: [MissingControllerException] Controller class FontsController could not be found.
+Exception Attributes: array (
+  'class' => 'FontsController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/krushiprabhat/fonts/MyriadPro-BoldCond.otf
+Stack Trace:
+#0 /var/www/cakephp/krushiprabhat/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

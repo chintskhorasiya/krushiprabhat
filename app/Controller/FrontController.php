@@ -206,18 +206,31 @@ class FrontController extends AppController
             $news_page_id = $get_news_data_by_slug['News']['id'];
             $news_page_content = $get_news_data_by_slug['News']['content'];
             $news_page_title = $get_news_data_by_slug['News']['title'];
+            $news_page_slug = $get_news_data_by_slug['News']['slug'];
+            $news_page_content = $get_news_data_by_slug['News']['content'];
             $news_page_images = $get_news_data_by_slug['News']['images'];
             $news_page_videos = $get_news_data_by_slug['News']['videos'];
             $news_page_modified = $get_news_data_by_slug['News']['modified'];
             $news_page_views = (int) $get_news_data_by_slug['News']['views'];
+
+            if(!empty($news_page_images)){
+                $og_images = explode(',', $news_page_images);
+                $og_image = $og_images[0];
+            } else {
+                $og_image = DEFAULT_URL.'img/new-default.png';
+            }
+
         } else {
             $news_page_id = '';
             $news_page_content = '';
             $news_page_title = '';
+            $news_page_content = '';
+            $news_page_slug = '';
             $news_page_images = '';
             $news_page_videos = '';
             $news_page_modified = '';
             $new_page_views = 0;
+            $og_image = DEFAULT_URL.'img/new-default.png';
         }
 
         $this->loadmodel('NewsCategory');
@@ -226,9 +239,11 @@ class FrontController extends AppController
         if(!empty($get_newscat_data_by_slug['NewsCategory']['name']))
         {
             $category_title = $get_newscat_data_by_slug['NewsCategory']['name'];
+            $category_slug = $get_newscat_data_by_slug['NewsCategory']['slug'];
             $category_id = $get_newscat_data_by_slug['NewsCategory']['id'];
         } else {
             $category_title = '';
+            $category_slug = '';
             $category_id = '';
         }
 
@@ -280,6 +295,13 @@ class FrontController extends AppController
 
         $this->set('page_name', 'news_detail');
         $this->set('owl_enabled', 'enabled');
+
+        $this->set('og_enabled', true);
+        $this->set('og_url', DEFAULT_URL.'news-detail/'.$category_slug.'/'.$news_page_slug);
+        $this->set('og_title', $news_page_title);
+        $this->set('og_description', $news_page_content);
+        $this->set('og_image', $og_image);
+
         $this->set('category_id', $category_id);
         $this->set('category_title', $category_title);
         $this->set('news_page_id', $news_page_id);

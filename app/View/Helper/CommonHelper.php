@@ -27,4 +27,23 @@ class CommonHelper extends AppHelper {
         return $category_slug;           
     }
 
+    public function limit_text($text, $limit) {
+
+        $text = strip_tags($text);
+        $textWordsArr = explode(' ', $text);
+        $total_words = count($textWordsArr);
+        //var_dump($textWordsArr);
+        if ($total_words > $limit) {
+            $text = '';
+            foreach ($textWordsArr as $word_key => $word) {
+                if($word_key < $limit){
+                    $text .= $word.' ';
+                }
+            }
+            $text .= '...';
+            return $text;
+        }
+        return $text;
+    }
+
 }

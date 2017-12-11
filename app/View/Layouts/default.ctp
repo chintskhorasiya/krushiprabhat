@@ -8,6 +8,18 @@
         <link rel="shortcut icon" href="<?php echo IMAGE_URL;?>favicon.png" type="image/png-icon"/>
         <link rel="icon" href="<?php echo IMAGE_URL;?>favicon.png" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <?php
+        if($og_enabled){
+            ?>
+            <meta property="og:url"           content="<?=$og_url?>" />
+            <meta property="og:type"          content="website" />
+            <meta property="og:title"         content="<?=$og_title?>" />
+            <meta property="og:description"   content="<?=$this->Common->limit_text($og_description, 15)?>" />
+            <meta property="og:image"         content="<?=$og_image?>" />
+            <?php
+        }
+        ?>
         <noscript>Your browser does not support JavaScript!</noscript>
 
         <?php /* */ ?>

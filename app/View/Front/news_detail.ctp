@@ -77,12 +77,12 @@ echo $this->element('frontheader');
 	<?php } ?>
 	<p class="dba_pdate col-md-6">Updated - <?php echo $news_page_modified; //Nov 22, 2017, 05:11 PM IST ?></p>
 
-	<div class="social-like col-md-6">
+ 	<div class="social-like col-md-6">
 		<div class="clear social-share">  
-		  	<span><a href=""><img src="<?=DEFAULT_URL?>img/social-face.png" alt=""></a></span>
-		  	<span><a href=""><img src="<?=DEFAULT_URL?>img/social-google.png" alt=""></a></span>
-		  	<span><a href=""><img src="<?=DEFAULT_URL?>img/social-twitter.png" alt=""></a></span>
-		  	<span><a href=""><img src="<?=DEFAULT_URL?>img/social-pint.png" alt=""></a></span>
+		  	<span><a href="http://www.facebook.com/sharer.php?u=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')"><img src="<?=DEFAULT_URL?>img/social-face.png" alt=""></a></span>
+		  	<span><a href="https://plus.google.com/share?url=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']); ?>" onclick="return !window.open(this.href, 'Google', 'width=640,height=580')"><img src="<?=DEFAULT_URL?>img/social-google.png" alt=""></a></span>
+		  	<span><a href="http://twitter.com/share?text=<?=$news_page_title?>&url=<?=$og_url?>" onclick="return !window.open(this.href, 'Twitter', 'width=640,height=580')"><img src="<?=DEFAULT_URL?>img/social-twitter.png" alt=""></a></span>
+		  	<span><a href="http://pinterest.com/pin/create/button/?url=<?=urlencode($og_url)?>&media=<?=$og_image?>" onclick="return !window.open(this.href, 'Pinterest', 'width=640,height=580')"><img src="<?=DEFAULT_URL?>img/social-pint.png" alt=""></a></span>
 	  	</div>
 	</div>
 
