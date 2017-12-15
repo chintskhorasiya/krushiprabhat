@@ -5,6 +5,25 @@ class ApiController extends AppController
     public $components = array('Cookie', 'Session', 'Email', 'Paginator');
     public $helpers = array('Html', 'Form', 'Session', 'Time');
 
+    public function get_categories_list()
+    {
+        $this->loadmodel('NewsCategory');
+
+        $all_newscate_data = $this->NewsCategory->find('all', array('conditions' => array('status IN'=> array(1), 'menu_enabled'=>1), 'order' => array('id' => 'asc')));
+
+        $return_data['categories'] = array();
+        foreach ($all_newscate_data as $cat_key => $cat_data) {
+            $return_data['categories'][] = $cat_data['NewsCategory'];
+        }
+
+        //$this->pre($return_data);exit;
+
+        //echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
+        //echo '<meta http-equiv="content-type" content="application/*;charset=UTF-8">';
+        echo json_encode($return_data, JSON_UNESCAPED_UNICODE);exit;
+
+    }
+
     public function get_category_first_news($category_id = 1, $jsonFormat = true)
     {
     	$this->loadmodel('News');
@@ -44,7 +63,7 @@ class ApiController extends AppController
     	{
     		$cate_id = $cat_data['NewsCategory']['id'];
     		$cate_name = $cat_data['NewsCategory']['name'];
-    		$cate_news_data[$cate_name] = $this->get_category_first_news($cate_id, false);
+    		$cate_news_data[$cate_name][0] = $this->get_category_first_news($cate_id, false);
     	}
 
     	//$this->pre($cate_news_data);exit;
@@ -73,9 +92,9 @@ class ApiController extends AppController
 
     	//$this->pre($cate_news_data);exit;
 
-    	$this->set('result', $cate_news_data);
+    	//$this->set('result', $cate_news_data);
 
-    	$this->render('/Api/result');
+    	//$this->render('/Api/result');
     	//exit;
 
     }
