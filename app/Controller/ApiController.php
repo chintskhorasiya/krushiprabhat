@@ -85,7 +85,7 @@ class ApiController extends AppController
 			font-weight: normal !important;
 		 }
 		</style>';*/
-		echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
+		//echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
 		//echo '<meta http-equiv="content-type" content="application/*;charset=UTF-8">';
     	echo json_encode($cate_news_data, JSON_UNESCAPED_UNICODE);exit;
     	//echo json_encode($result, JSON_UNESCAPED_UNICODE);
@@ -104,7 +104,16 @@ class ApiController extends AppController
     // for category listing page - start
     public function get_category_news_listing($category_id = 1, $page = 1)
     {
-    	$this->loadmodel('News');
+    	//$this->pre($this->params->query);exit;
+        
+        if(!empty($this->params->query['category_id'])){
+            $category_id = $this->params->query['category_id'];
+        }
+        if(!empty($this->params->query['page'])){
+            $page = $this->params->query['page'];
+        }
+
+        $this->loadmodel('News');
     	$this->loadmodel('NewsCategory');
 
     	$latest_newscate_data = $this->NewsCategory->find('first', array('conditions' => array('status IN'=> array(1), 'id'=>$category_id), 'order' => array('id' => 'desc')));
@@ -115,11 +124,17 @@ class ApiController extends AppController
 
     	$latest_news_data = $this->News->find('all', array('conditions' => array('status IN'=> array(1), 'FIND_IN_SET(\''.$category_id.'\',categories)'), 'limit' => 5, 'page' => $page, 'order' => array('id' => 'desc')));
 
-    	//$this->pre($latest_news_data);exit;
+    	$return_data = array();
 
-    	echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
+        foreach ($latest_news_data as $newskey => $newsdata) {
+            $return_data['news'][] = $newsdata['News'];
+        }
+        
+        //$this->pre($return_data);exit;
+
+    	//echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
         //echo '<meta http-equiv="content-type" content="application/*;charset=UTF-8">';
-        echo json_encode($latest_news_data, JSON_UNESCAPED_UNICODE);exit;
+        echo json_encode($return_data, JSON_UNESCAPED_UNICODE);exit;
 
         //echo json_encode($latest_news_data);exit;
 
@@ -143,7 +158,7 @@ class ApiController extends AppController
 
     	//$this->pre($news_detail_data);exit;
 
-        echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
+        //echo '<meta http-equiv="content-type" content="text/html;charset=UTF-8">';
         //echo '<meta http-equiv="content-type" content="application/*;charset=UTF-8">';
         echo json_encode($news_detail_data, JSON_UNESCAPED_UNICODE);exit;
 
