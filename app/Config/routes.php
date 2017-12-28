@@ -94,6 +94,11 @@
 	    array('controller' => 'front', 'action' => 'live_tv')
 	);
 
+	Router::connect(
+	    '/marketing/*',
+	    array('controller' => 'front', 'action' => 'marketing')
+	);
+
     /*Router::connect(
 	    '/admin',
 	    array('controller' => 'users')

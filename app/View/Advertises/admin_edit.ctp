@@ -78,7 +78,7 @@
 
                                     echo $this->Form->input('link', array('class' => 'form-control input-lg', 'label'=>'External Link (e.g http://vtvgujarati.com/)', 'value' => $ads_data['Advertise']['link']));
 
-                                    $options = array('home_top_right'=>'home_top_right (700x100)','home_rightbar_first'=>'home_rightbar_first (320x320)','home_footer_bottom'=>'home_footer_bottom (995x250)','category_page_rightbar'=>'category_page_rightbar (320x320)','detail_page_rightbar'=>'detail_page_rightbar (320x320)','detail_page_latest_bottom'=>'detail_page_latest_bottom (995x250)');
+                                    $options = array('home_top_right'=>'home_top_right (700x100)','home_rightbar_first'=>'home_rightbar_first (320x320)','home_footer_bottom'=>'home_footer_bottom (995x250)','category_page_rightbar'=>'category_page_rightbar (320x320)','detail_page_rightbar'=>'detail_page_rightbar (320x320)','detail_page_latest_bottom'=>'detail_page_latest_bottom (995x250)','mobile_app'=>'mobile_app (400x200)');
                                     
                                     $selected = $ads_data['Advertise']['position'];
 

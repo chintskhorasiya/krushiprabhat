@@ -724,4 +724,8 @@ class FrontController extends AppController
         $this->set('livetv_page_title', 'Live TV');
     }
 
+    public function marketing(){
+        $this->set('marketing_page_title', 'માર્કેટિંગ યાર્ડ ભાવ');
+    }
+
 }

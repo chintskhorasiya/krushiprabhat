@@ -66,7 +66,8 @@
 		  			<li><a href="<?=DEFAULT_FRONT_NEWS_CATEGORY_URL.$newscate_data['NewsCategory']['slug']?>"><?=$newscate_data['NewsCategory']['name'];?></a></li>
 		  			<?php	
 		  		}
-		  		?> 
+		  		?>
+		  		<li><a href="<?=DEFAULT_URL?>marketing">માર્કેટિંગ યાર્ડ ભાવ</a></li> 
 			</ul>
 		</nav>
       </div>  <!-- menu-header end -->	   

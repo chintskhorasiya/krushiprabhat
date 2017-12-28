@@ -300,7 +300,9 @@ class AppController extends Controller {
             'polls/admin_search'=>'Searched Polls List',
             'polls/admin_lists'=>'Polls List',
             'polls/admin_add'=>'Add Poll',
-            'polls/admin_edit'=>'Edit Poll'
+            'polls/admin_edit'=>'Edit Poll',
+            'live_tv'=>'લાઈવ ટીવી',
+            'marketing'=>'માર્કેટિંગ યાર્ડ ભાવ'
         );
 //
         //echo $title_arr[$pagenames];

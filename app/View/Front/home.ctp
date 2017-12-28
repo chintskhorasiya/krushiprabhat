@@ -4,10 +4,15 @@ echo $this->element('frontheader');
 <div class="left-part"> <!-- left-part start -->
 	<section class="main sec-part1"> <!-- sec-part1 start -->
 		<a href="<?php echo $this->Common->get_listing_url(9); ?>"><h2 class="main-title">Top Story</h2></a>
+		<style>
+	    .owl-video-wrapper .owl-video-tn{min-height: 450px !important;}
+		</style>
 		<div class="sec-part1-left">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<div class="carousel-inner">
+			<div class="owl-carousel owl-theme top-carousel">
 					<?php
+					$youtube_regex_pattern = "/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/";
+					$match;
+
 					// for home page latest news slider
 					if(count($latest_news_gallery_data) > 0){
 						foreach ($latest_news_gallery_data as $latest_news_num => $latest_news_data) {
@@ -17,26 +22,44 @@ echo $this->element('frontheader');
 								} else{
 									echo '<div class="item news-b1">';
 								}
-								if(!empty($latest_news_data['News']['images'])){
-									$latest_news_images = explode(',', $latest_news_data['News']['images']);
-									$gallery_main = $latest_news_images[0];
-								} else {
-									$gallery_main = DEFAULT_URL.'img/new-default.png';
+
+								$video_main = false;
+								if(!empty($latest_news_data['News']['videos'])){
+									
+									$videos_arr = explode(',', $latest_news_data['News']['videos']);
+									$video_post = $videos_arr[0];
+									if(preg_match($youtube_regex_pattern, $video_post, $match))
+									{
+										$video_main = $match[4];	
+									}
 								}
-								echo '<a href="'.DEFAULT_FRONT_NEWS_DETAIL_URL.$latest_news_data['News']['cat_slug'].'/'.$latest_news_data['News']['slug'].'"><img src="'.$gallery_main.'" alt="'.$latest_news_data['News']['title'].'" /></a>';
+
+								if(empty($video_main))
+								{
+									if(!empty($latest_news_data['News']['images'])){
+										$latest_news_images = explode(',', $latest_news_data['News']['images']);
+										$gallery_main = $latest_news_images[0];
+									} else {
+										$gallery_main = DEFAULT_URL.'img/new-default.png';
+									}
+								}
+
+								if($video_main)
+								{
+									echo '<a href="'.DEFAULT_FRONT_NEWS_DETAIL_URL.$latest_news_data['News']['cat_slug'].'/'.$latest_news_data['News']['slug'].'"><a class="owl-video" href="https://www.youtube.com/watch?v='.$video_main.'"></a></a>';
+								}
+								else
+								{
+									echo '<a href="'.DEFAULT_FRONT_NEWS_DETAIL_URL.$latest_news_data['News']['cat_slug'].'/'.$latest_news_data['News']['slug'].'"><img src="'.$gallery_main.'" alt="'.$latest_news_data['News']['title'].'" /></a>';
+								}
+
+
 								echo '<a href="'.DEFAULT_FRONT_NEWS_DETAIL_URL.$latest_news_data['News']['cat_slug'].'/'.$latest_news_data['News']['slug'].'"><h3>'.mb_substr($latest_news_data['News']['title'], 0, 50).'</h3></a>';
 								echo '</div>';
 							}
 						}
 					}
 					?>
-				</div>
-				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-					<span class="glyphicon-chevron-left"><img src="<?=DEFAULT_URL?>img/prev-arrow.png" alt="arrow"></span>
-				</a>
-				<a class="right carousel-control" href="#myCarousel" data-slide="next">
-					<span class="glyphicon-chevron-right"><img src="<?=DEFAULT_URL?>img/left-arrow.png" alt="arrow"></span>
-				</a>
 			</div>
 		</div>
 		<div class="sec-part1-grey">
@@ -444,13 +467,39 @@ echo $this->element('frontheader');
 	});
 
 	$(document).ready(function() {
-      var owl = $('.owl-carousel');
-      owl.owlCarousel({
+      var poll = $('.poll-carousel');
+      poll.owlCarousel({
         margin: 10,
         nav: true,
         loop: true,
         //autoHeight:true,
         autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        video:true,
+        lazyLoad:true,
+        center:true,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          1000: {
+            items: 1
+          }
+        }
+      })
+
+      var top = $('.top-carousel');
+      top.owlCarousel({
+        margin: 10,
+        nav: true,
+        loop: true,
+        autoHeight:true,
+        autoplay:true,
         autoplayTimeout:3000,
         autoplayHoverPause:true,
         video:true,
